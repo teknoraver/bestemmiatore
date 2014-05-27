@@ -1,5 +1,6 @@
 package net.teknoraver.bestemmiatore;
 
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,17 +11,25 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Locale;
 
 
-public class Main extends ActionBarActivity {
+public class Main extends ActionBarActivity implements TextToSpeech.OnInitListener {
+    private ArrayList<String> words;
+    private TextToSpeech tts;
+    private TextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        text = (TextView)findViewById(R.id.text);
+
+        tts = new TextToSpeech(this, this);
+
         BufferedReader dict = new BufferedReader(new InputStreamReader(getResources().openRawResource(R.raw.italian)));
-        ArrayList<String> words = new ArrayList<>();
+        words = new ArrayList<>();
         String w;
         try {
             while((w = dict.readLine()) != null) {
@@ -30,10 +39,16 @@ public class Main extends ActionBarActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        TextView text = (TextView)findViewById(R.id.text);
-        text.setText(words.get((int) (Math.random() * words.size())));
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        String b = "Dio " + words.get((int) (Math.random() * words.size()));
+        text.setText(b);
+        tts.speak(b, TextToSpeech.QUEUE_FLUSH, null);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -52,5 +67,10 @@ public class Main extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onInit(final int status) {
+        tts.setLanguage(Locale.ITALIAN);
     }
 }
