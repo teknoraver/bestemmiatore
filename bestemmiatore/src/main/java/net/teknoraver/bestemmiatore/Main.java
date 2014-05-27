@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -15,7 +16,8 @@ import java.util.Locale;
 
 
 public class Main extends ActionBarActivity implements TextToSpeech.OnInitListener {
-    private ArrayList<String> words;
+    private ArrayList<String> aggettivi;
+    private ArrayList<String> santi;
     private TextToSpeech tts;
     private TextView text;
 
@@ -24,28 +26,48 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        text = (TextView)findViewById(R.id.text);
+        text = (TextView) findViewById(R.id.text);
 
         tts = new TextToSpeech(this, this);
 
-        BufferedReader dict = new BufferedReader(new InputStreamReader(getResources().openRawResource(R.raw.italian)));
-        words = new ArrayList<>();
+        aggettivi = grep(R.raw.italian, ".*ato$");
+        santi = grep(R.raw.tuttisanti, null);
+    }
+
+    private ArrayList<String> grep(int id, String regexp) {
+        BufferedReader dict = new BufferedReader(new InputStreamReader(getResources().openRawResource(id)));
+        ArrayList<String> ret = new ArrayList<>();
         String w;
         try {
-            while((w = dict.readLine()) != null) {
-                if(w.endsWith("ato"))
-                    words.add(w);
+            while ((w = dict.readLine()) != null) {
+//                    if(regexp == null || w.matches(regexp))
+                        ret.add(w);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return ret;
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        String b = "Dio " + words.get((int) (Math.random() * words.size()));
+        play(null);
+    }
+
+    public void play(View v) {
+        int tipo = (int)(Math.random() * 3);
+        String b = aggettivi.get((int) (Math.random() * aggettivi.size()));
+
+        if(tipo == 0) {
+            b = "Dio " + b;
+        } else if(tipo == 1) {
+            b = "Madonna " + b.replaceAll("o$", "a$");
+        } else if(tipo == 2) {
+            b = "Mannaggia San " + santi.get((int) (Math.random() * santi.size()));
+        }
+
         text.setText(b);
         tts.speak(b, TextToSpeech.QUEUE_FLUSH, null);
     }
