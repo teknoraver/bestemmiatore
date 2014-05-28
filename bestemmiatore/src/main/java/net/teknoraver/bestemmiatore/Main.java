@@ -58,13 +58,16 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 	protected void onStart() {
 		super.onStart();
 
-		play(null);
+		next(null);
 	}
 
 	public void play(View v) {
-		int tipo = (int)(Math.random() * 3);
+		text.setText(bestemmia);
+		tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, null);
+	}
 
-		switch(tipo) {
+	public void next(View v) {
+		switch((int)(Math.random() * 3)) {
 			case 0:
 				bestemmia = aggettivi[(int) (Math.random() * aggettivi.length)];
 				bestemmia = "Dio " + bestemmia;
@@ -78,8 +81,7 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 				break;
 		}
 
-		text.setText(bestemmia);
-		tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, null);
+		play(null);
 	}
 
 	public void text(View v) {
@@ -98,15 +100,15 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 				.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + outputFile.getAbsolutePath())));
 	}
 
+	public void pref(View v) {
+
+	}
+/*
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
-	}
-
-	public void pref(View v) {
-
 	}
 
 	@Override
@@ -120,7 +122,7 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
+*/
 	@Override
 	public void onInit(final int status) {
 		tts.setLanguage(Locale.ITALIAN);
