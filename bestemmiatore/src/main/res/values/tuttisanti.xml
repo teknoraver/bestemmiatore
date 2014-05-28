@@ -1,0 +1,1269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="tuttisanti">
+<item>Achilleo</item>
+<item>Adalberto di Praga</item>
+<item>Agata</item>
+<item>Agnese</item>
+<item>Agostino</item>
+<item>Agostino di Canterbury</item>
+<item>Alberto Magno</item>
+<item>Alfonso Maria de\' Liguori</item>
+<item>Ambrogio</item>
+<item>Andrea</item>
+<item>Angela Merici</item>
+<item>Angeli Custodi</item>
+<item>Anna</item>
+<item>Anselmo d\'Aosta</item>
+<item>Antonio</item>
+<item>Antonio di Padova</item>
+<item>Antonio Maria Claret</item>
+<item>Antonio Maria Zaccaria</item>
+<item>Apollinare di Ravenna</item>
+<item>Atanasio</item>
+<item>Augusto Chapdelaine</item>
+<item>Abacuc</item>
+<item>Abati di Agauno</item>
+<item>Abbondio</item>
+<item>Abbondio</item>
+<item>Abbondio di Cordova</item>
+<item>Abbondio, Abbondanzio, Marciano e Giovanni</item>
+<item>Abbone di Metz</item>
+<item>Abbone di Fleury</item>
+<item>Abda e Ebedieso</item>
+<item>Abdia</item>
+<item>Abdon e Sennen</item>
+<item>Abercio di Geropoli</item>
+<item>Aberilla</item>
+<item>Abgar V Ukama</item>
+<item>Abibo di Edessa</item>
+<item>Ableberto</item>
+<item>Abo di Tiflis</item>
+<item>Abramo</item>
+<item>Abramo</item>
+<item>Abramo</item>
+<item>Abramo di St-Cirgue</item>
+<item>Abramo e Coren</item>
+<item>Abreha</item>
+<item>Abruncolo</item>
+<item>Abruncolo di Langres</item>
+<item>Abudemio</item>
+<item>Acacio di Mileto</item>
+<item>Acacio di Amida</item>
+<item>Acacio di Militene</item>
+<item>Acardo</item>
+<item>Acardo di Jumieges</item>
+<item>Acario di Noyon e Tournai</item>
+<item>Achille Puchala</item>
+<item>Achilleo</item>
+<item>Achilleo il Taumaturgo</item>
+<item>Achilleo</item>
+<item>Acindino, Pegasio, Aftonio, Elpidiforo, Anempodisto e compagni</item>
+<item>Acisclo Pina Piazuelo</item>
+<item>Acisclo e Vittoria</item>
+<item>Aconzio, Nonno, Ercolano e Taurino</item>
+<item>Ada di Le Mans</item>
+<item>Adalardo di Corbie</item>
+<item>Adalbaldo</item>
+<item>Adalberone di Wurzburg</item>
+<item>Adalberto</item>
+<item>Adalberto</item>
+<item>Adalberto Nierychlewski</item>
+<item>Adalberto di Egmond</item>
+<item>Adalberto di Praga</item>
+<item>Adalgiso di Novara</item>
+<item>Barbara</item>
+<item>Barnaba</item>
+<item>Bartolomeo</item>
+<item>Basilio Magno</item>
+<item>Basilio Magno e Gregorio Nazianzeno</item>
+<item>Beda detto il Venerabile</item>
+<item>Benedetto da Norcia</item>
+<item>Bernardino da Siena</item>
+<item>Bernardo di Chiaravalle</item>
+<item>Biagio</item>
+<item>Bonaventura</item>
+<item>Bonifacio</item>
+<item>Brigida di Svezia</item>
+<item>Bruno</item>
+<item>Albano Roe</item>
+<item>Babila, Urbano, Prilidano ed Epolono</item>
+<item>Bacco il Giovane</item>
+<item>Bacolo di Sorrento</item>
+<item>Baiulo</item>
+<item>Balbina di Roma</item>
+<item>Baldassarre Ravaschieri da Chiavari</item>
+<item>Baldassarre Velasquez</item>
+<item>Baldassarre, Antonio ed Ignazio Uchibori</item>
+<item>Baldo</item>
+<item>Baldomero</item>
+<item>Baldovino da Rieti</item>
+<item>Balsamia</item>
+<item>Balsamo di Cava</item>
+<item>Bambini e Giovani</item>
+<item>Banban di Lethglenn</item>
+<item>Banban Sapiens</item>
+<item>Banto e Beato</item>
+<item>Barbara</item>
+<item>Barbara Cui Lianzhi</item>
+<item>Barbara Kim e Barbara Yi</item>
+<item>Barbato di Benevento</item>
+<item>Barbaziano di Ravenna</item>
+<item>Bardone di Magonza</item>
+<item>Barlaam di Antiochia</item>
+<item>Barnaba</item>
+<item>Baronto e Desiderio</item>
+<item>Barsanofio</item>
+<item>Barses di Edessa</item>
+<item>Barsimeo</item>
+<item>Bartolo Buonpedoni da San Gimignano</item>
+<item>Bartolo Longo</item>
+<item>Bartolomea Capitanio</item>
+<item>Bartolomea Carletti da Chivasso</item>
+<item>Bartolomeo</item>
+<item>Bartolomeo Aiutamicristo da Pisa</item>
+<item>Bartolomeo Blanco</item>
+<item>Bartolomeo Cerveri</item>
+<item>Bartolomeo Dalmasoni</item>
+<item>Bartolomeo di Breganze</item>
+<item>Bartolomeo di Olmedo</item>
+<item>Bartolomeo di Simeri</item>
+<item>Bartolomeo Fanti</item>
+<item>Bartolomeo Fernandes des Martires</item>
+<item>Bartolomeo Gutierrez e compagni</item>
+<item>Bartolomeo il Giovane di Grottaferrata</item>
+<item>Bartolomeo Laurel</item>
+<item>Bartolomeo Magi di Anghiari</item>
+<item>Bartolomeo Maria Dal Monte</item>
+<item>Bartolomeo Placido di Recanati</item>
+<item>Callisto I</item>
+<item>Camillo de Lellis</item>
+<item>Carlo Borromeo</item>
+<item>Carlo Lwanga e 12 compagni</item>
+<item>Casimiro</item>
+<item>Caterina d\'Alessandria</item>
+<item>Caterina da Siena</item>
+<item>Cattedra di San Pietro Apostolo</item>
+<item>Cecilia</item>
+<item>Chiara</item>
+<item>Cipriano</item>
+<item>Cirillo</item>
+<item>Cirillo d\'Alessandria</item>
+<item>Cirillo di Gerusalemme</item>
+<item>Cirillo e Metodio</item>
+<item>Clemente I Romano</item>
+<item>Colombano</item>
+<item>Commemorazione di tutti i fedeli defunti</item>
+<item>Conversione di San Paolo Apostolo</item>
+<item>Cornelio</item>
+<item>Cosma</item>
+<item>Cosma e Damiano</item>
+<item>7 Cavalieri Mercedari</item>
+<item>Battista Varano</item>
+<item>Cadoc di Llancarfan</item>
+<item>Cadwaladr Fendigaid</item>
+<item>Cagnoaldo di Laon</item>
+<item>Cainnech</item>
+<item>Caio</item>
+<item>Caio di Corea</item>
+<item>Caio di Corinto</item>
+<item>Caio di Milano</item>
+<item>Caio e Cremenzio di Saragozza</item>
+<item>Caio ed Alessandro</item>
+<item>Calcedonio</item>
+<item>Caleb</item>
+<item>Calepodio</item>
+<item>Caletrico di Chartres</item>
+<item>Calimero di Milano</item>
+<item>Callinico di Gangra</item>
+<item>Callinico e Basilissa</item>
+<item>Callinico e compagni</item>
+<item>Calliopio</item>
+<item>Callisto Caravario</item>
+<item>Callisto I</item>
+<item>Calogero</item>
+<item>Calogero di Brescia</item>
+<item>Caluppano</item>
+<item>Cameliano di Troyes</item>
+<item>Camilla di Auxerre</item>
+<item>Camilla Gentili di Rovellone</item>
+<item>Camillo Costanzo</item>
+<item>Camillo de Lellis</item>
+<item>Candelaria di San Giuseppe</item>
+<item>Candida</item>
+<item>Candida</item>
+<item>Candida da Como</item>
+<item>Candida da Milazzo</item>
+<item>Candida di Napoli</item>
+<item>Candida di Roma</item>
+<item>Candida Maria di Gesù Cipitria</item>
+<item>Candido Castan San José</item>
+<item>Candido Ranzi</item>
+<item>Canio di Atella</item>
+<item>Canna</item>
+<item>Canonica</item>
+<item>Canuto IV</item>
+<item>Canuto Lavard</item>
+<item>Canzio, Canziano e Canzianilla</item>
+<item>Caprasio di Agen</item>
+<item>Caprasio di Lérins</item>
+<item>Caradoco</item>
+<item>Damaso I</item>
+<item>Damiano</item>
+<item>Daniele Alessio Brottier</item>
+<item>Dedicazione della Basilica Lateranense</item>
+<item>Dedicazione delle basiliche dei Santi Pietro e Paolo</item>
+<item>Dionigi e compagni</item>
+<item>Domenico di Guzman</item>
+<item>Domenico Savio</item>
+<item>Dafrosa di Roma</item>
+<item>Dagoberto II</item>
+<item>Dalmazio di Pavia</item>
+<item>Dalmazio di Rodez</item>
+<item>Dalmazio Moner</item>
+<item>Damaride</item>
+<item>Damaso I</item>
+<item>Dámaso Luis</item>
+<item>Damiano</item>
+<item>Damiano</item>
+<item>Damiano d\'Africa</item>
+<item>Damiano da Finale</item>
+<item>Damiano de Portu</item>
+<item>Damiano de Veuster</item>
+<item>Damiano di Pavia</item>
+<item>Damiano di Terracina</item>
+<item>Damiano Grassi da Rivoli</item>
+<item>Dana</item>
+<item>Daniela di San Barnaba e Gabriella di San Giovanni della Croce</item>
+<item>Daniele Alessio Brottier</item>
+<item>Daniele Comboni</item>
+<item>Daniele de Ungrispach</item>
+<item>Daniele dell\'Annunziata</item>
+<item>Daniele di Bangor</item>
+<item>Daniele di Padova</item>
+<item>Daniele e compagni</item>
+<item>Daniele Gomez Lucas</item>
+<item>Daniele lo Stilita</item>
+<item>Darerca di Killeavy</item>
+<item>Daria</item>
+<item>Daria Andiarena Sagaseta</item>
+<item>Daria e Derbilia del Connaught</item>
+<item>Dario Acosta Zurita</item>
+<item>Dario Hernandez Morato</item>
+<item>Dario, Zosimo, Paolo e Secondo di Nicea</item>
+<item>Dasio</item>
+<item>Dasio, Zotico e Caio</item>
+<item>Davanzato da Poggibonsi</item>
+<item>David di Menevia</item>
+<item>David Galvan Bermudez</item>
+<item>David I</item>
+<item>David Roldan Lara</item>
+<item>David Uribe Velasco</item>
+<item>Davide Okelo</item>
+<item>Davide Carlos Maranon</item>
+<item>Davide di Himmerod</item>
+<item>Davide di Salonicco</item>
+<item>Davide di Svezia</item>
+<item>Davide Enrico Lewis</item>
+<item>Davide Gonson</item>
+<item>Edvige</item>
+<item>Efrem</item>
+<item>Elisabetta d\'Ungheria</item>
+<item>Elisabetta di Portogallo</item>
+<item>Enrico II</item>
+<item>Eusebio di Vercelli</item>
+<item>Earconvaldo</item>
+<item>Eata di Hexham</item>
+<item>Ebba di Coldingham</item>
+<item>Ebregisilo di Colonia</item>
+<item>Ebrulfo di Ouche</item>
+<item>Ecclesio Celio</item>
+<item>Edberto</item>
+<item>Edberto di Lindisfarne</item>
+<item>Edda di Winchester</item>
+<item>Edesio</item>
+<item>Edgaro il Pacifico</item>
+<item>Edisto</item>
+<item>Edith di Wilton</item>
+<item>Edmigio Primo Rodriguez, Amalio Zariquiegui Mendoza e Valerio Bernardo Herrero Martínez</item>
+<item>Edmondo</item>
+<item>Edmondo</item>
+<item>Edmondo Arrowsmith</item>
+<item>Edmondo Campion</item>
+<item>Edmondo di Scozia</item>
+<item>Edmondo Duke, Riccardo Hill, Giovanni Hogg e Riccardo Holiday</item>
+<item>Edmondo Gennings e Swithun Wells</item>
+<item>Edmondo Ignazio Rice</item>
+<item>Edmondo Rich</item>
+<item>Edmondo Sykes</item>
+<item>Edmund Bojanowski</item>
+<item>Ednyfed</item>
+<item>Edoardo Grzymala</item>
+<item>Edoardo Burden</item>
+<item>Edoardo Campion, Roberto Wilcox, Cristoforo Buxton e Roberto Widmerpool</item>
+<item>Edoardo Coleman</item>
+<item>Edoardo Detkens</item>
+<item>Edoardo Giuseppe Rosaz</item>
+<item>Edoardo II il Martire</item>
+<item>Edoardo III il Confessore</item>
+<item>Edoardo Jones e Antonio Middleton</item>
+<item>Edoardo Kazmierski</item>
+<item>Edoardo Klinik</item>
+<item>Edoardo Oldcorne</item>
+<item>Edoardo Osbaldeston</item>
+<item>Edoardo Poppe</item>
+<item>Edoardo Powell, Riccardo Fetherston e Tommaso Abel</item>
+<item>Edoardo Stransham e Nicola Wheeler</item>
+<item>Edoardo Twing</item>
+<item>Edoardo Waterson</item>
+<item>Edvige</item>
+<item>Edvige</item>
+<item>Edwin</item>
+<item>Efebo</item>
+<item>Efisio di Cagliari</item>
+<item>Efrem</item>
+<item>Fabiano</item>
+<item>Fedele da Sigmaringen</item>
+<item>Filippo</item>
+<item>Filippo e Giacomo il Minore</item>
+<item>Filippo Neri</item>
+<item>Francesca Romana</item>
+<item>Francesco d\'Assisi</item>
+<item>Francesco da Paola</item>
+<item>Francesco di Sales</item>
+<item>Francesco Saverio</item>
+<item>Fabiano</item>
+<item>Fabio e compagni</item>
+<item>Fabio il Vessillifero</item>
+<item>Fabiola di Roma</item>
+<item>Fabriciano e Filiberto</item>
+<item>Fachtna</item>
+<item>Facio di Cremona</item>
+<item>Facondo e Primitivo</item>
+<item>Falco di Palena</item>
+<item>Falcone</item>
+<item>Famiano</item>
+<item>Fandila di Cordova</item>
+<item>Fantino il Giovane</item>
+<item>Fantino il Vecchio</item>
+<item>Fara</item>
+<item>Farailde di Gand</item>
+<item>Farone di Meaux</item>
+<item>Fausta</item>
+<item>Fausta di Narni</item>
+<item>Fausta Romana</item>
+<item>Faustina</item>
+<item>Faustina di Cizico</item>
+<item>Faustina di Como</item>
+<item>Faustiniano</item>
+<item>Faustino e Giovita</item>
+<item>Faustino Miguez</item>
+<item>Faustino Oteiza Segura</item>
+<item>Fausto</item>
+<item>Fausto di Alessandria</item>
+<item>Fausto di Riez</item>
+<item>Fausto, Dio e Ammonio</item>
+<item>Fausto, Gennaro e Marziale</item>
+<item>Favorino di Vercelli</item>
+<item>Febadio di Agen</item>
+<item>Febe</item>
+<item>Febronia</item>
+<item>Febronia</item>
+<item>Fechin di Fobhar</item>
+<item>Fede di Agen</item>
+<item>Fedele da Puzol</item>
+<item>Fedele da Sigmaringen</item>
+<item>Fedele di Como</item>
+<item>Fedele di Merida</item>
+<item>Fedele di Strasburgo</item>
+<item>Fedele Fuidio Rodriguez</item>
+<item>Fedele Gerolamo Chojnacki</item>
+<item>Federico</item>
+<item>Federico Rubio Álvarez e 3 compagni</item>
+<item>Federico Albert</item>
+<item>Federico Bachstein e 13 compagni</item>
+<item>Gabriele</item>
+<item>Geltrude la Grande</item>
+<item>Gennaro</item>
+<item>Giacomo il Maggiore</item>
+<item>Giacomo il Minore</item>
+<item>Gioacchino</item>
+<item>Giorgio</item>
+<item>Giorgio, martire e Adalberto di Praga, Vescovo e martire</item>
+<item>Giosafat Kuncewycz</item>
+<item>Giovanna Francesca de Chantal</item>
+<item>Giovanni</item>
+<item>Giovanni Battista de La Salle</item>
+<item>Giovanni Bosco</item>
+<item>Giovanni Crisostomo</item>
+<item>Giovanni da Capestrano</item>
+<item>Giovanni da Kety</item>
+<item>Giovanni Damasceno</item>
+<item>Giovanni della Croce</item>
+<item>Giovanni di Dio</item>
+<item>Giovanni Eudes</item>
+<item>Giovanni Fisher</item>
+<item>Giovanni I</item>
+<item>Giovanni Leonardi</item>
+<item>Giovanni Maria Vianney</item>
+<item>Giovanni Paolo II</item>
+<item>Giovanni XXIII</item>
+<item>Girolamo</item>
+<item>Girolamo Emiliani</item>
+<item>Giuda Taddeo</item>
+<item>Giulia</item>
+<item>Giuseppe</item>
+<item>Giuseppe</item>
+<item>Giuseppe Calasanzio</item>
+<item>Giuseppina Bakhita</item>
+<item>Giustino</item>
+<item>Gregorio I, detto Magno</item>
+<item>Gregorio Nazianzeno</item>
+<item>Gregorio VII</item>
+<item>Andrea de las Heras</item>
+<item>Gabriele</item>
+<item>Gabriele dell\'Addolorata</item>
+<item>Gabriele Ferretti</item>
+<item>Gabriele Lalemant</item>
+<item>Gabriele Maria Allegra</item>
+<item>Gabriele Maria da Benyfayo</item>
+<item>Gabriele Pergaud</item>
+<item>Gabriele Taurino Dufresse</item>
+<item>Gaetana Sterni</item>
+<item>Gaetano Catanoso</item>
+<item>Gaetano Errico</item>
+<item>Gaetano Thiene</item>
+<item>Galattorio di Lescar</item>
+<item>Galazione ed Episteme</item>
+<item>Galdino</item>
+<item>Galeotto Roberto Malatesta</item>
+<item>Galgano Guidotti</item>
+<item>Galla di Roma</item>
+<item>Gallo</item>
+<item>Gallo</item>
+<item>Gallo di Aosta</item>
+<item>Gamelberto</item>
+<item>Gandolfo da Binasco</item>
+<item>Garcia Darlet</item>
+<item>Garcia de Cardenas</item>
+<item>Garcia dAure</item>
+<item>Gaspare Burgherre</item>
+<item>Gaspare Daverio</item>
+<item>Gaspare de Bono</item>
+<item>Gaspare Del Bufalo</item>
+<item>Gaspare Hikojiro ed Andrea Yoshida</item>
+<item>Gaspare Koteda, Francesco Takeya e Pietro Shichiemon</item>
+<item>Gaspare Luigi Bertoni</item>
+<item>Gaspare Stanggassinger</item>
+<item>Gaucherio di Aureil</item>
+<item>Gaudenzia</item>
+<item>Gaudenzio</item>
+<item>Gaudenzio di Rimini</item>
+<item>Gaudenzio</item>
+<item>Gaudenzio Carmelino</item>
+<item>Gaudenzio di Brescia</item>
+<item>Gauderico</item>
+<item>Gaudioso di Salerno</item>
+<item>Gaudioso di Abitine</item>
+<item>Gaudioso di Brescia</item>
+<item>Gaudioso di Tarazona</item>
+<item>Gaugerico di Cambrai</item>
+<item>Gausberto</item>
+<item>Gavino, Proto e Gianuario</item>
+<item>Habib</item>
+<item>Hans Wagner</item>
+<item>Hartmann di Bressanone</item>
+<item>Hemming di Abo</item>
+<item>Hermenegildo Lorenzo</item>
+<item>Hildegard Burjan</item>
+<item>Hoardon</item>
+<item>Hroznata</item>
+<item>Hryhorij Khomysyn</item>
+<item>Hunna</item>
+<item>Hussik</item>
+<item>Hywel Faig</item>
+<item>Ignazio di Antiochia</item>
+<item>Ignazio di Loyola</item>
+<item>Ilario di Poitiers</item>
+<item>Innocenti</item>
+<item>Ippolito</item>
+<item>Ireneo di Lione</item>
+<item>Isidoro di Siviglia</item>
+<item>Ia</item>
+<item>Iarlath</item>
+<item>Ida di Fischingen</item>
+<item>Ida</item>
+<item>Ida di Boulogne</item>
+<item>Ida di Herzfeld</item>
+<item>Ida di Lovanio</item>
+<item>Idesbaldo delle Dune</item>
+<item>Idulfo di Moyenmoutier</item>
+<item>Ierone e compagni</item>
+<item>Ifigenia di S. Matteo de Gaillard de la Valdène</item>
+<item>Igino</item>
+<item>Ignazio</item>
+<item>Ignazio Maloyan</item>
+<item>Ignazio Klopotowski</item>
+<item>Ignazio Falzon</item>
+<item>Ignazio Casanovas Perramon</item>
+<item>Ignazio Clemente Delgado</item>
+<item>Ignazio da Laconi</item>
+<item>Ignazio da Santhià</item>
+<item>Ignazio de Azevedo e 38 compagni</item>
+<item>Ignazio di Antiochia</item>
+<item>Ignazio di Loyola</item>
+<item>Igor di Russia</item>
+<item>Ilario di Padova</item>
+<item>Ilario di Arles</item>
+<item>Ilario di Carcassonne</item>
+<item>Ilario di Magonza</item>
+<item>Ilario di Poitiers</item>
+<item>Ilario di Tolosa</item>
+<item>Ilario e Taziano</item>
+<item>Ilarione Januszewski</item>
+<item>Ilarione di Gaza</item>
+<item>Ilarione di Moglena</item>
+<item>Ilarione di Pelecete</item>
+<item>Ilarione il Giovane</item>
+<item>Ilarione Jugskie</item>
+<item>Ilaro</item>
+<item>Ilaro di Javols</item>
+<item>Ilda</item>
+<item>Ildebrando di Bagnoregio</item>
+<item>Ildefonso da Toledo</item>
+<item>Ildefonso della Croce e 5 compagni</item>
+<item>Ildegarda di Kempten</item>
+<item>Ildegarda di Bingen</item>
+<item>Ildegonda</item>
+<item>Ildemarca di Fecamp</item>
+<item>Ilduardo</item>
+<item>Illidio di Clermont</item>
+<item>Illuminata</item>
+<item>Charbel Makhluf</item>
+<item>Juan Diego Cuauhtlatoatzin</item>
+<item>Charbel Makhluf</item>
+<item>Gesù Mendez Montoya</item>
+<item>Giacomo Ilario Barbal Cosàn</item>
+<item>Giuseppe Vaz</item>
+<item>Jacopo da Todi</item>
+<item>Jaenbert</item>
+<item>Jakob Gapp</item>
+<item>Jakob Kern</item>
+<item>Janos Scheffler</item>
+<item>Jarogniew Wojciechowski</item>
+<item>Jean-Baptiste Souzy</item>
+<item>Jean-Louis Bonnard</item>
+<item>Jean-Marie du Lau dAlleman</item>
+<item>Jenaro Sanchez Delgadillo</item>
+<item>Jesus Hita Miranda</item>
+<item>Johannes Prassek, Hermann Lange e Eduard Muller</item>
+<item>Jorio</item>
+<item>Josafat Kocylovskyj</item>
+<item>Josafat Roque</item>
+<item>Josaphat Chichkov</item>
+<item>Josaphata Michaelina Hordashevska</item>
+<item>Josè Aparicio Sanz</item>
+<item>José Azurmendi Larrìnaga</item>
+<item>José Calasanz Marqués</item>
+<item>José Guardiet y Pujol</item>
+<item>Jose Isabel Flores Varela</item>
+<item>Josè Manyanet y Vives</item>
+<item>José María Poyatos Ruiz</item>
+<item>Jose Maria Robles Hurtado</item>
+<item>José Samsó i Elías</item>
+<item>José Sanchez Del Rio</item>
+<item>Josemaria Escrivá de Balaguer</item>
+<item>Josep Tàpies Sirvant e 6 compagni</item>
+<item>Joseph-Marie Cassant</item>
+<item>Juan de Palafox y Mendoza</item>
+<item>Juan Del Castillo</item>
+<item>Juan Diego Cuauhtlatoatzin</item>
+<item>Juan Duarte Martín</item>
+<item>Juan Huguet Cardona</item>
+<item>Julio Alfonso</item>
+<item>Julio Alvarez Mendoza</item>
+<item>Junipero Serra</item>
+<item>Justino Orona Madrigal</item>
+<item>Jutta di Sangerhausen</item>
+<item>Caterina Tekakwitha</item>
+<item>Kamen Vitchev</item>
+<item>Kevin</item>
+<item>Kilian</item>
+<item>Kinga</item>
+<item>Koloman</item>
+<item>Kragon</item>
+<item>Sebastiano Kimura</item>
+<item>Tommaso Khuong</item>
+<item>Laura di Cordova</item>
+<item>Leone I, detto Magno</item>
+<item>Lorenzo</item>
+<item>Lorenzo da Brindisi</item>
+<item>Luca</item>
+<item>Lucia</item>
+<item>Ludovico</item>
+<item>Luigi Gonzaga</item>
+<item>Luigi Maria Grignion da Montfort</item>
+<item>Ladislao</item>
+<item>Ladislao Bladzinski</item>
+<item>Ladislao Demski</item>
+<item>Ladislao Findysz</item>
+<item>Ladislao Goral</item>
+<item>Ladislao Maczkowski</item>
+<item>Ladislao Miegon</item>
+<item>Ladislao da Gielnow</item>
+<item>Ladislao Luis</item>
+<item>Lamberto di Frisinga</item>
+<item>Lamberto di Lione</item>
+<item>Lamberto di Maastricht</item>
+<item>Lamberto di Saragozza</item>
+<item>Lamberto di Vence</item>
+<item>Landelino</item>
+<item>Landelino di Ettenheim</item>
+<item>Landerico</item>
+<item>Landerico di Parigi</item>
+<item>Landolfo da Vareglate</item>
+<item>Landrada</item>
+<item>Lanfranco Beccari</item>
+<item>Lanfranco di Canterbury</item>
+<item>Lanfranco di Vercelli</item>
+<item>Lang Yangzhi e Paolo Lang Fu</item>
+<item>Lanno</item>
+<item>Lanuino</item>
+<item>Lasreano o Molasso</item>
+<item>Laszlo Batthyany-Strattmann</item>
+<item>Laudo di Coutances</item>
+<item>Launo di Thouars</item>
+<item>Launomaro</item>
+<item>Laura di Cordova</item>
+<item>Laura di Santa Caterina da Siena</item>
+<item>Laura e 52 compagne</item>
+<item>Laura Vicuna</item>
+<item>Laureano</item>
+<item>Laureato</item>
+<item>Laurent</item>
+<item>Lauriano</item>
+<item>Lauro e compagni</item>
+<item>Laverio</item>
+<item>Lazzaro</item>
+<item>Lazzaro</item>
+<item>Lazzaro di Milano</item>
+<item>Lazzaro e Maria di Betania</item>
+<item>Lazzaro il Galesiota</item>
+<item>Lazzaro Tiersot</item>
+<item>Lea</item>
+<item>Leandro</item>
+<item>Leandro di Siviglia</item>
+<item>Marcellino e Pietro</item>
+<item>Marco</item>
+<item>Margherita di Scozia</item>
+<item>Margherita Maria Alacoque</item>
+<item>Maria Goretti</item>
+<item>Maria Maddalena</item>
+<item>Maria Maddalena de\' Pazzi</item>
+<item>Marta di Betania</item>
+<item>Martino de Porres</item>
+<item>Martino di Tours</item>
+<item>Martino I</item>
+<item>Martirio di San Giovanni Battista</item>
+<item>Massimiliano Maria Kolbe</item>
+<item>Matteo</item>
+<item>Mattia</item>
+<item>Metodio</item>
+<item>Michele</item>
+<item>Michele, Gabriele e Raffaele</item>
+<item>Monica</item>
+<item>6 Monache Mercedarie di Merriz</item>
+<item>Caterina Caldes Socias</item>
+<item>Giulia Billiart</item>
+<item>Mac Cairthind</item>
+<item>Mac Nisse</item>
+<item>Macario d\'Armenia</item>
+<item>Macario di Alessandria</item>
+<item>Macario di Collesano</item>
+<item>Macario di Gerusalemme</item>
+<item>Macario di Pelecete</item>
+<item>Macario il Grande</item>
+<item>Macario l\'Alessandrino</item>
+<item>Macario lo Scozzese</item>
+<item>Macario, Rufino, Giusto e Teofilo</item>
+<item>Maccabei, Sette fratelli</item>
+<item>Macedonio, Patrizia e Modesta di Nicomedia</item>
+<item>Macedonio, Teodulo e Taziano</item>
+<item>Machar di Aberdeen</item>
+<item>Machita</item>
+<item>Macrina l\'Anziana</item>
+<item>Macrina la Giovane</item>
+<item>Macuto di Aleth</item>
+<item>Maddalena Albrici</item>
+<item>Maddalena Caterina Morano</item>
+<item>Maddalena da Nagasaki</item>
+<item>Maddalena del Santo Sacramento de Justamond</item>
+<item>Maddalena della Concezione</item>
+<item>Maddalena della Madre di Dio Verchière e 5 compagne</item>
+<item>Maddalena di Canossa</item>
+<item>Maddalena la Maggiore</item>
+<item>Maddalena Panattieri</item>
+<item>Maddalena Sofia Barat</item>
+<item>Maddalena Yi Y&#335;ng-h&#365;i e 7 compagni</item>
+<item>Madelberta</item>
+<item>Madrun</item>
+<item>Mael Ruain</item>
+<item>Maelrubha di Applecross</item>
+<item>Mafalda</item>
+<item>Maggiorino di Acqui</item>
+<item>Magi dOriente</item>
+<item>Magino di Tarragona</item>
+<item>Maglorio</item>
+<item>Magnanzia e Massima</item>
+<item>Magnerico di Treviri</item>
+<item>Magno</item>
+<item>Magno</item>
+<item>Magno de Trincheri</item>
+<item>Magno di Anagni</item>
+<item>Magno di Fussen</item>
+<item>Magno di Orkney</item>
+<item>Natività di San Giovanni Battista</item>
+<item>Nereo</item>
+<item>Nicola di Mira</item>
+<item>Norberto</item>
+<item>Santissimo Nome di Gesù</item>
+<item>Nabore e Felice</item>
+<item>Namazio di Clermont</item>
+<item>Namazio di Vienne</item>
+<item>Namfamone e compagni</item>
+<item>Nancto</item>
+<item>Napoleone</item>
+<item>Narcisa di Gesù Martillo y Moràn</item>
+<item>Narciso Putz</item>
+<item>Narciso Basté Basté</item>
+<item>Narciso de Estenaga y Echevarria</item>
+<item>Narciso di Gerusalemme</item>
+<item>Narciso Giovanni Turchan</item>
+<item>Narno</item>
+<item>Narsete I il Parto</item>
+<item>Narsete</item>
+<item>Narsete e Giuseppe</item>
+<item>Natale</item>
+<item>Natale Chabanel</item>
+<item>Natale di Milano</item>
+<item>Natale Ilario Le Conte</item>
+<item>Natale Pinot</item>
+<item>Natalia di Tolosa</item>
+<item>Natalia e compagni</item>
+<item>Natalia Tulasiewicz</item>
+<item>Nathalan</item>
+<item>Nathì</item>
+<item>Natività di San Giovanni Battista</item>
+<item>Naum</item>
+<item>Nazaria Ignazia March Mesa</item>
+<item>Nazario di Capodistria</item>
+<item>Nazario e Celso</item>
+<item>Nemesia Valle</item>
+<item>Nemesiano, Felice, Lucio, Litteo, Poliano, Vittore, Iader e Dativo</item>
+<item>Nemesio di Alessandria</item>
+<item>Nemorio e compagni</item>
+<item>Neofito di Nicea</item>
+<item>Neosnadia</item>
+<item>Nereo</item>
+<item>Nestore di Magydos</item>
+<item>Nevolone</item>
+<item>Nicandro</item>
+<item>Nicandro ed Ermeo</item>
+<item>Nicandro, Gregorio, Pietro, Demetrio ed Elisabetta</item>
+<item>Nicarete di Costantinopoli</item>
+<item>Nicasio Camuto de Burgio</item>
+<item>Nicasio di Reims</item>
+<item>Nicasio, Quirino, Scubicolo e Pienza</item>
+<item>Niccolò Fattore</item>
+<item>Niccolò Albergati</item>
+<item>Niccolò I</item>
+<item>Oscar</item>
+<item>Obizio da Niardo</item>
+<item>Oceano</item>
+<item>Oda</item>
+<item>Oddino Barotti</item>
+<item>Oddone di Novara</item>
+<item>Oddone di Cluny</item>
+<item>Oddone di Urgel</item>
+<item>Odegonda</item>
+<item>Odgero</item>
+<item>Odilia</item>
+<item>Odilia di Hohenbourg</item>
+<item>Odilone di Cluny</item>
+<item>Odoardo Focherini</item>
+<item>Odolfo</item>
+<item>Odorico da Pordenone</item>
+<item>Odorisio I di Montecassino</item>
+<item>Odrada</item>
+<item>Odran di Iona</item>
+<item>Odulfo di Utrecht</item>
+<item>Oengus il Culdeo</item>
+<item>Oglerio</item>
+<item>Olav</item>
+<item>Olav di Svezia</item>
+<item>Olcese</item>
+<item>Olga di Kiev</item>
+<item>Olimpia</item>
+<item>Olimpia</item>
+<item>Olimpiade</item>
+<item>Oliva di Anagni</item>
+<item>Oliviero Lefevre</item>
+<item>Oliviero Plunkett</item>
+<item>Ollegario di Tarragona</item>
+<item>Ombelina</item>
+<item>Omeljan Kovc</item>
+<item>Omobono di Cremona</item>
+<item>Onesiforo</item>
+<item>Onesimo</item>
+<item>Onofrio</item>
+<item>Onofrio</item>
+<item>Onorata di Pavia</item>
+<item>Onorato Kazminski</item>
+<item>Onorato di Amiens</item>
+<item>Onorato di Arles</item>
+<item>Onorato di Buzançais</item>
+<item>Onorato di Fondi</item>
+<item>Onorato di Milano</item>
+<item>Onorato di Subiaco</item>
+<item>Onorato di Tolosa</item>
+<item>Onorato di Vercelli</item>
+<item>Onorina</item>
+<item>Pancrazio</item>
+<item>Paolino di Nola</item>
+<item>Paolo</item>
+<item>Paolo della Croce</item>
+<item>Paolo Miki e compagni</item>
+<item>Patrizio</item>
+<item>Perpetua e Felicita</item>
+<item>Pier Damiani</item>
+<item>Pietro</item>
+<item>Pietro Canisio</item>
+<item>Pietro Chanel</item>
+<item>Pietro Chanel e Luigi Maria da Montfort</item>
+<item>Pietro Claver</item>
+<item>Pietro Crisologo</item>
+<item>Pietro e Paolo</item>
+<item>Pietro Giuliano Eymard</item>
+<item>Pio da Pietrelcina</item>
+<item>Pio V</item>
+<item>Pio X</item>
+<item>Policarpo</item>
+<item>Ponziano</item>
+<item>10 Padri Mercedari</item>
+<item>11 Padri Mercedari</item>
+<item>6 Padri Mercedari</item>
+<item>Maria Pierina De Micheli</item>
+<item>Pabai</item>
+<item>Pablo di Merida</item>
+<item>Pabo</item>
+<item>Paciano di Barcellona</item>
+<item>Pacifico</item>
+<item>Pacifico da Sanseverino Marche</item>
+<item>Pacifico da Valencia</item>
+<item>Pacifico Ramati da Cerano</item>
+<item>Pacomio</item>
+<item>Padri Mercedari di Avignone</item>
+<item>Pafnuzio</item>
+<item>Pagano di Lecco</item>
+<item>Palazia e Laurenzia</item>
+<item>Palemone</item>
+<item>Palerio di Telese</item>
+<item>Palladio</item>
+<item>Palladio di Auxerre</item>
+<item>Palladio di Saintes</item>
+<item>Palmerio</item>
+<item>Pammachio di Roma</item>
+<item>Panacea De\' Muzzi</item>
+<item>Pancrazio</item>
+<item>Pancrazio di Taormina</item>
+<item>Panfilo di Roma</item>
+<item>Panfilo di Sulmona</item>
+<item>Panfilo e compagni</item>
+<item>Pantagato di Vienne</item>
+<item>Pantaleone</item>
+<item>Panteno</item>
+<item>Paola di S. Giuseppe di Calasanzio</item>
+<item>Paola Elisabetta Cerioli</item>
+<item>Paola Frassinetti</item>
+<item>Paola Gambara Costa</item>
+<item>Paola Montaldi</item>
+<item>Paola Romana</item>
+<item>Paolina</item>
+<item>Paolina del Cuore Agonizzante di Gesù</item>
+<item>Paolina e familiari</item>
+<item>Paolina von Mallinckrodt</item>
+<item>Paolino Bigazzini</item>
+<item>Paolino d\'Aquileia</item>
+<item>Paolino di Lucca</item>
+<item>Paolino di Nola</item>
+<item>Paolino di Treviri</item>
+<item>Paolino di York</item>
+<item>Paolo</item>
+<item>Quadrato</item>
+<item>Quadrato di Magnesia</item>
+<item>Quadrato di Utica</item>
+<item>Quarto</item>
+<item>Quarto di Capua</item>
+<item>Quarto e Quinto</item>
+<item>Quattro Coronati</item>
+<item>Quinidio</item>
+<item>Quinta dAlessandria</item>
+<item>Quintino</item>
+<item>Quintino di Vermand</item>
+<item>Quinto di Capua</item>
+<item>Quinto e compagni</item>
+<item>Quinto il Taumaturgo</item>
+<item>Quinto, Simplicio e compagni</item>
+<item>Quinziano</item>
+<item>Quiriaco di Treviri</item>
+<item>Quirico</item>
+<item>Quirino</item>
+<item>Quirino di Roma</item>
+<item>Quirino di Siscia</item>
+<item>Quirino di Tivoli</item>
+<item>Quiteria</item>
+<item>Quodvultdeus</item>
+<item>Raffaele</item>
+<item>Raimondo de Penafort</item>
+<item>Rita da Cascia</item>
+<item>Roberto Bellarmino</item>
+<item>Rocco</item>
+<item>Romualdo</item>
+<item>Rosa da Lima</item>
+<item>6 Redentori Mercedari</item>
+<item>Bartolomeo Blanco Marquez</item>
+<item>Rabano Mauro</item>
+<item>Radbodo di Utrecht</item>
+<item>Radegonda</item>
+<item>Radulfo di Bourges</item>
+<item>Radulfo di La Fustaie</item>
+<item>Raffaele</item>
+<item>Raffaele Arnaiz Baron</item>
+<item>Raffaele Chylinski</item>
+<item>Raffaele di Barletta</item>
+<item>Raffaele di San Giuseppe</item>
+<item>Raffaele Guizar Valencia</item>
+<item>Raffaele Luigi Rafiringa</item>
+<item>Raffaele Pardo Molina e Giuseppe Maria Vidal Segu</item>
+<item>Raffaella Maria del Sacro Cuore</item>
+<item>Raffaella Santina Cimatti</item>
+<item>Raffaella Ybarra</item>
+<item>Raffale Alonso Gutierrez e Carlo Diaz Gandia</item>
+<item>Ragenfreda</item>
+<item>Raimondo</item>
+<item>Raimondo Albert</item>
+<item>Raimondo da Capua</item>
+<item>Raimondo da Cardona</item>
+<item>Raimondo da Moncada</item>
+<item>Raimondo da Tolosa</item>
+<item>Raimondo de Barellis</item>
+<item>Raimondo de Blanes</item>
+<item>Raimondo de Cayuela</item>
+<item>Raimondo de Fosso</item>
+<item>Raimondo de Penafort</item>
+<item>Raimondo de Pirrariis</item>
+<item>Raimondo di Fitero</item>
+<item>Raimondo di Monteolivo</item>
+<item>Raimondo di San Vittore e Guglielmo di San Leonardo</item>
+<item>Raimondo di Santa Grazia</item>
+<item>Raimondo du Puy</item>
+<item>Raimondo e Guglielmo da Granada</item>
+<item>Raimondo Eirin Mayo</item>
+<item>Raimondo Folch</item>
+<item>Raimondo Li Quanzhen e Pietro Li Quanhui</item>
+<item>Raimondo Lullo</item>
+<item>Raimondo Martì Soriano</item>
+<item>Raimondo Nonnato</item>
+<item>Raimondo Peiro Victori</item>
+<item>Raimondo Petiniaud de Jourgnac</item>
+<item>Raimondo Stefano Bou Pascual</item>
+<item>Raimondo Zanfogni, detto Palmerio</item>
+<item>Rainerio di Cagli</item>
+<item>Ramberto</item>
+<item>Sara</item>
+<item>Scolastica</item>
+<item>Sebastiano</item>
+<item>Sette Fondatori dell\'Ordine dei Servi della Beata Vergine Maria</item>
+<item>Silvestro I</item>
+<item>Simone</item>
+<item>Simone e Giuda</item>
+<item>Sisto II e compagni</item>
+<item>Stanislao</item>
+<item>Stefano</item>
+<item>Stefano di Ungheria</item>
+<item>Saba Archimandrita</item>
+<item>Saba il Giovane</item>
+<item>Saba il Goto</item>
+<item>Sabas Reyes Salazar</item>
+<item>Sabina</item>
+<item>Sabina e sorelle</item>
+<item>Sabiniano</item>
+<item>Sabiniano e Potenziano</item>
+<item>Sabino</item>
+<item>Sabino</item>
+<item>Sabino di Avellino</item>
+<item>Sabino di Canosa</item>
+<item>Sabino di Spoleto</item>
+<item>Sabino Hernandez Laso</item>
+<item>Sabrina</item>
+<item>Sacerdote di Limoges</item>
+<item>Sacerdote di Lione</item>
+<item>Sacro Manto di san Giuseppe</item>
+<item>Sadoc e 48 compagni</item>
+<item>Sadoth e centoventotto compagni</item>
+<item>Sagaris</item>
+<item>Salaberga</item>
+<item>Salmodio</item>
+<item>Salomè</item>
+<item>Salome di Niederaltaich</item>
+<item>Salomea da Cracovia</item>
+<item>Salomone</item>
+<item>Salomone Leclerq</item>
+<item>Salomone di Cordova</item>
+<item>Salomone dUngheria</item>
+<item>Salonio di Ginevra</item>
+<item>Salvador Lara Puente</item>
+<item>Salvatore Mollar Ventura</item>
+<item>Salvatore da Horta</item>
+<item>Salvatore Damiano Enguix Garès</item>
+<item>Salvatore Estrugo Solves</item>
+<item>Salvatore Fernandez Perez</item>
+<item>Salvatore Ferrandis Seguì</item>
+<item>Salvatore Lilli</item>
+<item>Salvio</item>
+<item>Salvio di Albi</item>
+<item>Salvio di Amiens</item>
+<item>Salvio e Superio</item>
+<item>Salvio Huix Miralpeix</item>
+<item>Samuele</item>
+<item>Samuele Marzorati e compagni</item>
+<item>Sancia del Portogallo</item>
+<item>Sancia di Leon</item>
+<item>Sancia dAragona</item>
+<item>Sancia Szymkowiak</item>
+<item>Teresa Benedetta della Croce</item>
+<item>Teresa di Gesù</item>
+<item>Teresa di Gesù Bambino</item>
+<item>Timoteo</item>
+<item>Timoteo e Tito</item>
+<item>Tito</item>
+<item>Tommaso</item>
+<item>Tommaso Becket</item>
+<item>Tommaso d\'Aquino</item>
+<item>Tommaso Moro</item>
+<item>Turibio de Mogrovejo</item>
+<item>Tutti i Santi</item>
+<item>Emer Mezzanotte</item>
+<item>Tabìta di Ioppe</item>
+<item>Taddeo Dulny</item>
+<item>Taddeo Liu Ruiting</item>
+<item>Taddeo Machar</item>
+<item>Taisia</item>
+<item>Talaleo</item>
+<item>Tammaro</item>
+<item>Tanca</item>
+<item>Tancredi, Torthred e Tova</item>
+<item>Taraco, Probo e Andronico</item>
+<item>Tarasio</item>
+<item>Tarcisia Mackiv</item>
+<item>Tarsicia</item>
+<item>Tarsicio di Roma</item>
+<item>Tarsila Cordoba Belda</item>
+<item>Tarsilia</item>
+<item>Tassilone III</item>
+<item>Taurino di Evreux</item>
+<item>Taziana di Roma</item>
+<item>Taziano di Claudiopoli</item>
+<item>Tecla</item>
+<item>Tecla di Iconio</item>
+<item>Tecla di Kitzingen</item>
+<item>Tegulo</item>
+<item>Telesforo</item>
+<item>Teliavo</item>
+<item>Temistocle di Licia</item>
+<item>Teobaldo d\'Inghilterra e Compagno</item>
+<item>Teobaldo da Narbona</item>
+<item>Teobaldo di Dorat</item>
+<item>Teobaldo di Marly</item>
+<item>Teobaldo di Provins</item>
+<item>Teobaldo di Vienne</item>
+<item>Teobaldo Roggeri</item>
+<item>Teodardo di Narbonne</item>
+<item>Teodardo di Tongress</item>
+<item>Teodechilde</item>
+<item>Teodemiro di Cordova</item>
+<item>Teodgaro</item>
+<item>Teodolfo di Lobbes</item>
+<item>Teodolinda</item>
+<item>Teodora Guerin</item>
+<item>Teodora di Rossano</item>
+<item>Teodoreto di Antiochia</item>
+<item>Teodorico Balat</item>
+<item>Teodorico di Mont-d\'Or</item>
+<item>Teodorico di Orleans</item>
+<item>Teodorico di St. Evroult</item>
+<item>Teodoro</item>
+<item>Ubaldesca Taccini</item>
+<item>Ubaldo da Borgo San Sepolcro</item>
+<item>Ubaldo di Gubbio</item>
+<item>Uberto di Bretigny</item>
+<item>Uberto di Tongeren-Maastricht</item>
+<item>Ugo Canefri da Genova</item>
+<item>Ugo d\'Anzy-le-Duc</item>
+<item>Ugo de Actis</item>
+<item>Ugo de Mataplana</item>
+<item>Ugo di Bonnevaux</item>
+<item>Ugo di Cluny</item>
+<item>Ugo di Fosses</item>
+<item>Ugo di Grenoble</item>
+<item>Ugo di Lincoln</item>
+<item>Ugo di Lincoln</item>
+<item>Ugo di Macon</item>
+<item>Ugo di Novalesa</item>
+<item>Ugo di Novara di Sicilia</item>
+<item>Ugo di Rouen</item>
+<item>Ugo di Tennenbach</item>
+<item>Ugo Faringdon, Giovanni Eynon e Giovanni Rugg</item>
+<item>Ugo Green</item>
+<item>Ugolina di Vercelli</item>
+<item>Ugolino da Gualdo Cattaneo</item>
+<item>Ugolino Magalotti da Fiegni</item>
+<item>Ugolino Zefirini</item>
+<item>Ugone Taylor e Marmaduke Bowes</item>
+<item>Uldarico Guillaume</item>
+<item>Ulpia Candida</item>
+<item>Ulpia Vittoria</item>
+<item>Ulpiano di Tiro</item>
+<item>Ulrica Nisch</item>
+<item>Ulrico</item>
+<item>Ulrico</item>
+<item>Umberto Benso</item>
+<item>Umberto di Maroilles</item>
+<item>Umberto di Miribel</item>
+<item>Umberto III di Savoia</item>
+<item>Umile da Bisignano</item>
+<item>Umiliana de Cerchi</item>
+<item>Umiltà</item>
+<item>Una</item>
+<item>Unfrido di Therouanne</item>
+<item>Ungero di Utrecht</item>
+<item>Urbano di Teano</item>
+<item>Urbano I</item>
+<item>Urbano II</item>
+<item>Urbano Lefevre</item>
+<item>Urbano V</item>
+<item>Urbano, Teodoro, Menedemo e compagni</item>
+<item>Valentino</item>
+<item>Venceslao</item>
+<item>Vincenzo de\' Paoli</item>
+<item>Vincenzo di Saragozza</item>
+<item>Vincenzo Ferrer</item>
+<item>Valburga</item>
+<item>Valdeberto</item>
+<item>Valdetrude</item>
+<item>Valdo</item>
+<item>Valentina</item>
+<item>Valentina</item>
+<item>Valentiniano di Coira</item>
+<item>Valentiniano di Salerno</item>
+<item>Valentino</item>
+<item>Valentino</item>
+<item>Valentino</item>
+<item>Valentino di Genova</item>
+<item>Valentino di Treviri</item>
+<item>Valentino e Ilario di Viterbo</item>
+<item>Valentino Gil Arribas</item>
+<item>Valentino Paquay</item>
+<item>Valentino Rovira</item>
+<item>Valeria</item>
+<item>Valeria di Limoges</item>
+<item>Valeria e compagne</item>
+<item>Valeriana e compagne</item>
+<item>Valeriano</item>
+<item>Valeriano di Aquileia</item>
+<item>Valeriano di Avensano</item>
+<item>Valeriano di Cimiez</item>
+<item>Valeriano di Tournus</item>
+<item>Valeriano e LXXX compagni</item>
+<item>Valerico</item>
+<item>Valerico di Leuconay</item>
+<item>Valerio</item>
+<item>Valerio</item>
+<item>Valerio di Saragozza</item>
+<item>Valerio di Langres</item>
+<item>Valerio di Ravenna</item>
+<item>Valerio di Treviri</item>
+<item>Valerio e Rufino</item>
+<item>Valero</item>
+<item>Valstano di Bawburgh</item>
+<item>Vandregisilo</item>
+<item>Vardan e compagni</item>
+<item>Varnerio di Oberwesel</item>
+<item>Varo e compagni</item>
+<item>Vasil Hopko</item>
+<item>Vasnulfo</item>
+<item>Vedasto di Arras</item>
+<item>Vedasto di Vercelli</item>
+<item>Venanzio di Camerino</item>
+<item>Venanzio di Luni</item>
+<item>Venanzio di Tours</item>
+<item>Venanzio di Viviers</item>
+<item>Walhero</item>
+<item>Walter di S. Martino di Pontoise</item>
+<item>Wando</item>
+<item>Wilbirg</item>
+<item>Wilfrido della Gherardesca</item>
+<item>Wincenty Stefan Frelichowski</item>
+<item>Wirone</item>
+<item>Witesindo di Cordova</item>
+<item>Witta</item>
+<item>Wivine</item>
+<item>Wolfango da Steinkirchen</item>
+<item>Wunibald di Heidenheim</item>
+<item>Xacatur di Tigranakert</item>
+<item>Xenia</item>
+<item>Xi Guizi</item>
+<item>Xumpo</item>
+<item>Lucia Yi Zhenmei</item>
+<item>Vincenzo Do Yen</item>
+<item>Yoshida Xoum</item>
+<item>Yves Hélory de Kermartin</item>
+<item>Ywi</item>
+<item>Zaccaria</item>
+<item>Zaccaria</item>
+<item>Zaccaria</item>
+<item>Zaccaria</item>
+<item>Zaccaria del Mercurion</item>
+<item>Zaccheo</item>
+<item>Zaira</item>
+<item>Zama</item>
+<item>Zanobi</item>
+<item>Zdenka Cecilia Schelingova</item>
+<item>Zdislava</item>
+<item>Zeffirino Gimenez Malla</item>
+<item>Zeffirino</item>
+<item>Zeffirino Namuncurà</item>
+<item>Zefirino Agostini</item>
+<item>Zeno di Verona</item>
+<item>Zenobio</item>
+<item>Zenobio di Sidone</item>
+<item>Zenobio e Zenobia</item>
+<item>Zenone Kovalyk</item>
+<item>Zenone di Maiuma</item>
+<item>Zenone di Roma</item>
+<item>Zenone e figli</item>
+<item>Zenone e Zena</item>
+<item>Zhang Huailu</item>
+<item>Zita</item>
+<item>Zoello</item>
+<item>Zoerardo o Andrea e Benedetto</item>
+<item>Zoilo di Cordova</item>
+<item>Zoltan Lajos Meszlenyi</item>
+<item>Zosimo</item>
+<item>Zosimo</item>
+<item>Zosimo di Siracusa</item>
+<item>Zota</item>
+<item>Zotico di Costantinopoli</item>
+<item>Zotico e compagni</item>
+</string-array>
+</resources>

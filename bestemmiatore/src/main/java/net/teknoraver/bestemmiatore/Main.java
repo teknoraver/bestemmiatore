@@ -20,8 +20,8 @@ import java.util.Locale;
 
 
 public class Main extends ActionBarActivity implements TextToSpeech.OnInitListener {
-	private ArrayList<String> aggettivi;
-	private ArrayList<String> santi;
+	private String aggettivi[];
+	private String santi[];
 	private TextToSpeech tts;
 	private TextView text;
 	private String bestemmia;
@@ -35,8 +35,8 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 
 		tts = new TextToSpeech(this, this);
 
-		aggettivi = grep(R.raw.italian, ".*ato$");
-		santi = grep(R.raw.tuttisanti, null);
+		aggettivi = getResources().getStringArray(R.array.aggettivi);
+		santi = getResources().getStringArray(R.array.tuttisanti);
 	}
 
 	private ArrayList<String> grep(int id, String regexp) {
@@ -66,15 +66,15 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 
 		switch(tipo) {
 			case 0:
-				bestemmia = aggettivi.get((int) (Math.random() * aggettivi.size()));
+				bestemmia = aggettivi[(int) (Math.random() * aggettivi.length)];
 				bestemmia = "Dio " + bestemmia;
 				break;
 			case 1:
-				bestemmia = aggettivi.get((int) (Math.random() * aggettivi.size()));
+				bestemmia = aggettivi[(int) (Math.random() * aggettivi.length)];
 				bestemmia = "Madonna " + bestemmia.replaceAll("o$", "a$");
 				break;
 			case 2:
-				bestemmia = "Mannaggia San " + santi.get((int) (Math.random() * santi.size()));
+				bestemmia = "Mannaggia San " + santi[(int) (Math.random() * santi.length)];
 				break;
 		}
 
