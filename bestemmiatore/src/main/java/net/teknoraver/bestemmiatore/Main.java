@@ -105,6 +105,10 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 		return true;
 	}
 
+	public void pref(View v) {
+
+	}
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
