@@ -1,5 +1,8 @@
 package net.teknoraver.bestemmiatore;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Environment;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -9,6 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -20,6 +24,7 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
     private ArrayList<String> santi;
     private TextToSpeech tts;
     private TextView text;
+    private String bestemmia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,18 +63,39 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 
     public void play(View v) {
         int tipo = (int)(Math.random() * 3);
-        String b = aggettivi.get((int) (Math.random() * aggettivi.size()));
 
-        if(tipo == 0) {
-            b = "Dio " + b;
-        } else if(tipo == 1) {
-            b = "Madonna " + b.replaceAll("o$", "a$");
-        } else if(tipo == 2) {
-            b = "Mannaggia San " + santi.get((int) (Math.random() * santi.size()));
+        switch(tipo) {
+        case 0:
+            bestemmia = aggettivi.get((int) (Math.random() * aggettivi.size()));
+            bestemmia = "Dio " + bestemmia;
+            break;
+        case 1:
+            bestemmia = aggettivi.get((int) (Math.random() * aggettivi.size()));
+            bestemmia = "Madonna " + bestemmia.replaceAll("o$", "a$");
+            break;
+        case 2:
+            bestemmia = "Mannaggia San " + santi.get((int) (Math.random() * santi.size()));
+            break;
         }
 
-        text.setText(b);
-        tts.speak(b, TextToSpeech.QUEUE_FLUSH, null);
+        text.setText(bestemmia);
+        tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, null);
+    }
+
+    public void text(View v) {
+        startActivity(new Intent(android.content.Intent.ACTION_SEND)
+                .setType("text/plain")
+                .putExtra(android.content.Intent.EXTRA_TEXT, bestemmia));
+    }
+
+    public void audio(View v) throws IOException {
+        File outputFile = File.createTempFile("bestemmia", ".wav", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));
+        outputFile.deleteOnExit();
+        tts.synthesizeToFile(bestemmia, null, outputFile.getAbsolutePath());
+        startActivity(
+                new Intent(Intent.ACTION_SEND)
+                .setType("audio/*")
+                .putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + outputFile.getAbsolutePath())));
     }
 
     @Override

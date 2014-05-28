@@ -1,27 +1,47 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="net.teknoraver.bestemmiatore.Main">
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingLeft="@dimen/activity_horizontal_margin"
+	android:paddingRight="@dimen/activity_horizontal_margin"
+	android:paddingTop="@dimen/activity_vertical_margin"
+	android:paddingBottom="@dimen/activity_vertical_margin"
+	tools:context="net.teknoraver.bestemmiatore.Main">
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp" />
+	<TextView
+		android:id="@+id/text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="20sp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="bestemmia di nuovo"
-        android:id="@+id/button"
-        android:layout_below="@+id/text"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="play" />
+	<Button
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="bestemmia di nuovo"
+		android:id="@+id/again"
+		android:layout_below="@+id/text"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentStart="true"
+		android:onClick="play" />
+
+	<Button
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="condividi testo"
+		android:id="@+id/sharetext"
+		android:onClick="text"
+		android:layout_below="@+id/again"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentStart="true" />
+
+	<Button
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="condividi audio"
+		android:id="@+id/shareaudio"
+		android:layout_below="@+id/sharetext"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentStart="true"
+		android:onClick="audio" />
 
 </RelativeLayout>
