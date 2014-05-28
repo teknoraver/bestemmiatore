@@ -68,17 +68,17 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 
 	public void next(View v) {
 		switch((int)(Math.random() * 3)) {
-			case 0:
-				bestemmia = aggettivi[(int) (Math.random() * aggettivi.length)];
-				bestemmia = "Dio " + bestemmia;
-				break;
-			case 1:
-				bestemmia = aggettivi[(int) (Math.random() * aggettivi.length)];
-				bestemmia = "Madonna " + bestemmia.replaceAll("o$", "a$");
-				break;
-			case 2:
-				bestemmia = "Mannaggia San " + santi[(int) (Math.random() * santi.length)];
-				break;
+		case 0:
+			bestemmia = aggettivi[(int) (Math.random() * aggettivi.length)];
+			bestemmia = "Dio " + bestemmia;
+			break;
+		case 1:
+			bestemmia = aggettivi[(int) (Math.random() * aggettivi.length)];
+			bestemmia = "Madonna " + bestemmia.replaceAll("o$", "a$");
+			break;
+		case 2:
+			bestemmia = "Mannaggia San " + santi[(int) (Math.random() * santi.length)];
+			break;
 		}
 
 		play(null);
@@ -103,26 +103,26 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 	public void pref(View v) {
 
 	}
-/*
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+	/*
+		@Override
+		public boolean onCreateOptionsMenu(Menu menu) {
+			// Inflate the menu; this adds items to the action bar if it is present.
+			getMenuInflater().inflate(R.menu.main, menu);
 			return true;
 		}
-		return super.onOptionsItemSelected(item);
-	}
-*/
+
+		@Override
+		public boolean onOptionsItemSelected(MenuItem item) {
+			// Handle action bar item clicks here. The action bar will
+			// automatically handle clicks on the Home/Up button, so long
+			// as you specify a parent activity in AndroidManifest.xml.
+			int id = item.getItemId();
+			if (id == R.id.action_settings) {
+				return true;
+			}
+			return super.onOptionsItemSelected(item);
+		}
+	*/
 	@Override
 	public void onInit(final int status) {
 		tts.setLanguage(Locale.ITALIAN);
