@@ -1,21 +1,18 @@
 package net.teknoraver.bestemmiatore;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Environment;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Locale;
 
 
@@ -39,6 +36,7 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 		santi = getResources().getStringArray(R.array.tuttisanti);
 	}
 
+	/*
 	private ArrayList<String> grep(int id, String regexp) {
 		BufferedReader dict = new BufferedReader(new InputStreamReader(getResources().openRawResource(id)));
 		ArrayList<String> ret = new ArrayList<>();
@@ -52,7 +50,7 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 			e.printStackTrace();
 		}
 		return ret;
-	}
+	}*/
 
 	@Override
 	protected void onStart() {
@@ -101,8 +99,19 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 	}
 
 	public void pref(View v) {
-
+		ImageButton pref = (ImageButton) v;
+		SharedPreferences p = getPreferences(MODE_PRIVATE);
+		SharedPreferences.Editor edit = p.edit();
+		if(p.getBoolean(bestemmia, false)) {
+			edit.remove(bestemmia);
+			pref.setImageResource(android.R.drawable.btn_star_big_off);
+		} else {
+			edit.putBoolean(bestemmia, true).commit();
+			pref.setImageResource(android.R.drawable.btn_star_big_on);
+		}
+		edit.commit();
 	}
+
 	/*
 		@Override
 		public boolean onCreateOptionsMenu(Menu menu) {
