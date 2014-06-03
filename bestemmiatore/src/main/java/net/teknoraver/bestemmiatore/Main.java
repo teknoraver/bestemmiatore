@@ -126,5 +126,7 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 	@Override
 	public void onInit(final int status) {
 		tts.setLanguage(Locale.ITALIAN);
+		if(bestemmia != null)
+			play(null);
 	}
 }
