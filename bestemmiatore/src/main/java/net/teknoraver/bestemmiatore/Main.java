@@ -71,6 +71,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 		tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, null);
 	}
 
+
 	public void next(View v) {
 		switch((int)(Math.random() * 3)) {
 		case 0:
