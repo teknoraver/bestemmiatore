@@ -18,6 +18,7 @@ import android.widget.TextView;
 import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
+import java.util.Set;
 
 public class Main extends Activity implements TextToSpeech.OnInitListener {
 	private String aggettivi[];
@@ -67,6 +68,11 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	}
 
 	public void play(View v) {
+		if(prefs.getBoolean(bestemmia, false))
+			pref.setImageResource(R.drawable.btn_star_on_normal_holo_light);
+		else
+			pref.setImageResource(R.drawable.btn_star_off_normal_holo_light);
+
 		text.setText(bestemmia);
 		tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, null);
 	}
@@ -85,11 +91,6 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 			bestemmia = getString(R.string.b3, santi[(int) (Math.random() * santi.length)]);
 			break;
 		}
-
-		if(prefs.getBoolean(bestemmia, false))
-			pref.setImageResource(R.drawable.btn_star_on_normal_holo_light);
-		else
-			pref.setImageResource(R.drawable.btn_star_off_normal_holo_light);
 
 		play(null);
 	}
@@ -154,6 +155,18 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.action_prefs:
+			final Set<String> s = prefs.getAll().keySet();
+			final String preferiti[] = new String[s.size()];
+			s.toArray(preferiti);
+
+			new AlertDialog.Builder(this).setTitle(R.string.favourites)
+			.setItems(preferiti, new DialogInterface.OnClickListener() {
+				@Override public void onClick(DialogInterface dialogInterface, int i) {
+					bestemmia = preferiti[i];
+					play(null);
+				}
+			})
+			.show();
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

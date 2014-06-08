@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">Generatore Casuale di Bestemmie</string>
-	<string name="preferiti">preferiti</string>
+	<string name="favourites">preferiti</string>
 
 	<string name="play">ripeti</string>
 	<string name="share">condividi audio</string>
