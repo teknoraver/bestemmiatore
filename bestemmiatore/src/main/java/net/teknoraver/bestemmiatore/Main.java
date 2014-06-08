@@ -71,7 +71,6 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 		tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, null);
 	}
 
-
 	public void next(View v) {
 		switch((int)(Math.random() * 3)) {
 		case 0:
@@ -112,9 +111,9 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	}
 
 	public void share(View view) throws IOException {
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle(getString(R.string.shareas));
-		builder.setItems(R.array.shareas, new DialogInterface.OnClickListener() {
+		new AlertDialog.Builder(this)
+		.setTitle(getString(R.string.shareas))
+		.setItems(R.array.shareas, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialogInterface, int i) {
 				switch (i) {
@@ -129,8 +128,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 					break;
 				}
 			}
-		});
-		builder.show();
+		}).show();
 	}
 
 	public void pref(View v) {
