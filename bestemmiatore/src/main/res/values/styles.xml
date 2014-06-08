@@ -1,8 +1,12 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-    </style>
+	<!-- Base application theme. -->
+	<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+		<!-- Customize your theme here. -->
+	</style>
+	<style name="button">
+		<item name="android:background">@android:color/transparent</item>
+		<item name="android:padding">5dp</item>
+	</style>
 
 </resources>

@@ -28,7 +28,7 @@
 			android:contentDescription="@string/play"
 			android:onClick="play"
 			android:src="@drawable/ic_lock_silent_mode_off"
-			android:background="@android:color/transparent"/>
+			style="@style/button"/>
 
 		<ImageButton
 			android:id="@+id/share"
@@ -37,7 +37,7 @@
 			android:contentDescription="@string/share"
 			android:onClick="share"
 			android:src="@drawable/ic_menu_share_holo_light"
-			android:background="@android:color/transparent"/>
+			style="@style/button"/>
 
 		<ImageButton
 			android:id="@+id/pref"
@@ -46,7 +46,7 @@
 			android:contentDescription="@string/pref"
 			android:onClick="pref"
 			android:src="@drawable/btn_star_off_normal_holo_light"
-			android:background="@android:color/transparent"/>
+			style="@style/button"/>
 
 	</LinearLayout>
 
