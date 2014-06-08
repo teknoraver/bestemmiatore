@@ -1,12 +1,16 @@
 package net.teknoraver.bestemmiatore;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.speech.tts.TextToSpeech;
-import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -15,13 +19,14 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 
-
-public class Main extends ActionBarActivity implements TextToSpeech.OnInitListener {
+public class Main extends Activity implements TextToSpeech.OnInitListener {
 	private String aggettivi[];
 	private String santi[];
 	private TextToSpeech tts;
 	private TextView text;
+	private ImageButton pref;
 	private String bestemmia;
+	private SharedPreferences prefs;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,8 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 		setContentView(R.layout.main);
 
 		text = (TextView) findViewById(R.id.text);
+		pref = (ImageButton) findViewById(R.id.pref);
+		prefs = getPreferences(MODE_PRIVATE);
 
 		tts = new TextToSpeech(this, this);
 
@@ -68,27 +75,32 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 		switch((int)(Math.random() * 3)) {
 		case 0:
 			bestemmia = aggettivi[(int) (Math.random() * aggettivi.length)];
-			bestemmia = "Dio " + bestemmia;
+			bestemmia = getString(R.string.b1, bestemmia);
 			break;
 		case 1:
 			bestemmia = aggettivi[(int) (Math.random() * aggettivi.length)];
-			bestemmia = "Madonna " + bestemmia.replaceAll("o$", "a$");
+			bestemmia = getString(R.string.b2, bestemmia);
 			break;
 		case 2:
-			bestemmia = "Mannaggia San " + santi[(int) (Math.random() * santi.length)];
+			bestemmia = getString(R.string.b3, santi[(int) (Math.random() * santi.length)]);
 			break;
 		}
+
+		if(prefs.getBoolean(bestemmia, false))
+			pref.setImageResource(R.drawable.btn_star_on_normal_holo_light);
+		else
+			pref.setImageResource(R.drawable.btn_star_off_normal_holo_light);
 
 		play(null);
 	}
 
-	public void text(View v) {
+	private void shareText() {
 		startActivity(new Intent(android.content.Intent.ACTION_SEND)
 			.setType("text/plain")
 			.putExtra(android.content.Intent.EXTRA_TEXT, bestemmia));
 	}
 
-	public void audio(View v) throws IOException {
+	private void shareAudio() throws IOException {
 		File outputFile = File.createTempFile("bestemmia", ".wav", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));
 		outputFile.deleteOnExit();
 		tts.synthesizeToFile(bestemmia, null, outputFile.getAbsolutePath());
@@ -98,40 +110,57 @@ public class Main extends ActionBarActivity implements TextToSpeech.OnInitListen
 				.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + outputFile.getAbsolutePath())));
 	}
 
+	public void share(View view) throws IOException {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(getString(R.string.shareas));
+		builder.setItems(R.array.shareas, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialogInterface, int i) {
+				switch (i) {
+				case 0: shareText();
+					break;
+				case 1:
+					try {
+						shareAudio();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					break;
+				}
+			}
+		});
+		builder.show();
+	}
+
 	public void pref(View v) {
 		ImageButton pref = (ImageButton) v;
-		SharedPreferences p = getPreferences(MODE_PRIVATE);
-		SharedPreferences.Editor edit = p.edit();
-		if(p.getBoolean(bestemmia, false)) {
+		SharedPreferences.Editor edit = prefs.edit();
+		if(prefs.getBoolean(bestemmia, false)) {
 			edit.remove(bestemmia);
-			pref.setImageResource(android.R.drawable.btn_star_big_off);
+			pref.setImageResource(R.drawable.btn_star_off_normal_holo_light);
 		} else {
 			edit.putBoolean(bestemmia, true).commit();
-			pref.setImageResource(android.R.drawable.btn_star_big_on);
+			pref.setImageResource(R.drawable.btn_star_on_normal_holo_light);
 		}
 		edit.commit();
 	}
 
-	/*
-		@Override
-		public boolean onCreateOptionsMenu(Menu menu) {
-			// Inflate the menu; this adds items to the action bar if it is present.
-			getMenuInflater().inflate(R.menu.main, menu);
-			return true;
-		}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.main, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
 
-		@Override
-		public boolean onOptionsItemSelected(MenuItem item) {
-			// Handle action bar item clicks here. The action bar will
-			// automatically handle clicks on the Home/Up button, so long
-			// as you specify a parent activity in AndroidManifest.xml.
-			int id = item.getItemId();
-			if (id == R.id.action_settings) {
-				return true;
-			}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.action_prefs:
+			return true;
+		default:
 			return super.onOptionsItemSelected(item);
 		}
-	*/
+	}
+
 	@Override
 	public void onInit(final int status) {
 		tts.setLanguage(Locale.ITALIAN);
