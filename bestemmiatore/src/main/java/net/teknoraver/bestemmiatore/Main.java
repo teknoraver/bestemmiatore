@@ -18,7 +18,6 @@ import android.widget.TextView;
 import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
-import java.util.Set;
 
 public class Main extends Activity implements TextToSpeech.OnInitListener {
 	private String aggettivi[];
@@ -28,6 +27,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	private ImageButton pref;
 	private String bestemmia;
 	private SharedPreferences prefs;
+	private int BESTEMMIA = 1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +36,14 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 
 		text = (TextView) findViewById(R.id.text);
 		pref = (ImageButton) findViewById(R.id.pref);
-		prefs = getPreferences(MODE_PRIVATE);
+		prefs = getSharedPreferences("bestemmie", MODE_PRIVATE);
 
 		tts = new TextToSpeech(this, this);
 
 		aggettivi = getResources().getStringArray(R.array.aggettivi);
 		santi = getResources().getStringArray(R.array.tuttisanti);
+
+		next(null);
 	}
 
 	/*
@@ -59,13 +61,6 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 		}
 		return ret;
 	}*/
-
-	@Override
-	protected void onStart() {
-		super.onStart();
-
-		next(null);
-	}
 
 	public void play(View v) {
 		if(prefs.getBoolean(bestemmia, false))
@@ -155,22 +150,22 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.action_prefs:
-			final Set<String> s = prefs.getAll().keySet();
-			final String preferiti[] = new String[s.size()];
-			s.toArray(preferiti);
-
-			new AlertDialog.Builder(this).setTitle(R.string.favourites)
-			.setItems(preferiti, new DialogInterface.OnClickListener() {
-				@Override public void onClick(DialogInterface dialogInterface, int i) {
-					bestemmia = preferiti[i];
-					play(null);
-				}
-			})
-			.show();
+			startActivityForResult(new Intent(this, Preferiti.class), BESTEMMIA);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if(requestCode != BESTEMMIA) {
+			super.onActivityResult(requestCode, resultCode, data);
+			return;
+		}
+
+		bestemmia = data.getStringExtra(Preferiti.BESTEMMIA);
+		play(null);
 	}
 
 	@Override
