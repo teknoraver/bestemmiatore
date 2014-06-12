@@ -159,7 +159,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if(requestCode != BESTEMMIA) {
+		if(requestCode != BESTEMMIA || data == null) {
 			super.onActivityResult(requestCode, resultCode, data);
 			return;
 		}

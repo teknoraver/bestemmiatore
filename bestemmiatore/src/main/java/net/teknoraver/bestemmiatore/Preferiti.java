@@ -4,8 +4,12 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.Set;
 
 public class Preferiti extends ListActivity {
 	static final String BESTEMMIA = "bestemmia";
@@ -14,16 +18,31 @@ public class Preferiti extends ListActivity {
 	private class Adapter extends ArrayAdapter<String> {
 
 		public Adapter(Context context, String objects[]) {
-			super(context, android.R.layout.simple_list_item_1, objects);
+			super(context, R.layout.pref, objects);
 		}
 
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			if (convertView == null)
+				convertView = getLayoutInflater().inflate(R.layout.pref, null);
+
+			final TextView text = (TextView) convertView.findViewById(R.id.pref_text);
+			text.setText(getItem(position));
+
+			return convertView;
+		}
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.prefs);
 
-		adapter = new Adapter(this, getSharedPreferences("bestemmie", MODE_PRIVATE).getAll().keySet().toArray(new String[0]));
+		Set<String> s = getSharedPreferences("bestemmie", MODE_PRIVATE).getAll().keySet();
+		String bestemmie[] = new String[s.size()];
+		s.toArray(bestemmie);
+		adapter = new Adapter(this, bestemmie);
+//		adapter = new Adapter(this, new String[0]);
 
 		setListAdapter(adapter);
 	}

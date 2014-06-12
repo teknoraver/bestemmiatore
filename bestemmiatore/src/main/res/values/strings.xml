@@ -12,4 +12,5 @@
 	<string name="b1">Dio %sato</string>
 	<string name="b2">Madonna %sata</string>
 	<string name="b3">Mannaggia San %s</string>
+	<string name="noprefs">Nessun preferito</string>
 </resources>
