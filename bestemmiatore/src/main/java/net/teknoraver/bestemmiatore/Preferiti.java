@@ -2,6 +2,7 @@ package net.teknoraver.bestemmiatore;
 
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import java.util.Set;
 public class Preferiti extends ListActivity {
 	static final String BESTEMMIA = "bestemmia";
 	private Adapter adapter;
+	private SharedPreferences prefs;
 
 	private class Adapter extends ArrayAdapter<String> {
 
@@ -27,7 +29,18 @@ public class Preferiti extends ListActivity {
 
 			@Override
 			public void onClick(View view) {
-				System.out.println("unstar " + position);
+				final ImageButton star = (ImageButton) view;
+				String selected = adapter.getItem(position);
+				SharedPreferences.Editor editor = prefs.edit();
+
+				if(prefs.contains(selected)) {
+					star.setImageResource(R.drawable.btn_star_off_normal_holo_light);
+					editor.remove(selected);
+				} else {
+					star.setImageResource(R.drawable.btn_star_on_normal_holo_light);
+					editor.putBoolean(selected, true);
+				}
+				editor.commit();
 			}
 		}
 
@@ -55,7 +68,9 @@ public class Preferiti extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.prefs);
 
-		Set<String> s = getSharedPreferences("bestemmie", MODE_PRIVATE).getAll().keySet();
+		prefs = getSharedPreferences("bestemmie", MODE_PRIVATE);
+
+		Set<String> s = prefs.getAll().keySet();
 		String bestemmie[] = new String[s.size()];
 		s.toArray(bestemmie);
 		adapter = new Adapter(this, bestemmie);
