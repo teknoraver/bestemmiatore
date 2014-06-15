@@ -14,13 +14,14 @@
 		ads:adUnitId="ca-app-pub-6782149331693535/7290619204"
 		ads:adSize="SMART_BANNER"/>
 
-	<RelativeLayout
+	<LinearLayout
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
 		android:paddingLeft="@dimen/activity_horizontal_margin"
 		android:paddingRight="@dimen/activity_horizontal_margin"
 		android:paddingTop="@dimen/activity_vertical_margin"
-		android:paddingBottom="@dimen/activity_vertical_margin">
+		android:paddingBottom="@dimen/activity_vertical_margin"
+		android:orientation="vertical">
 
 		<TextView
 			android:id="@+id/text"
@@ -31,9 +32,7 @@
 		<LinearLayout
 			android:id="@+id/buttons"
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/text"
-			android:layout_alignParentLeft="true">
+			android:layout_height="wrap_content">
 
 			<ImageButton
 				android:id="@+id/play"
@@ -69,10 +68,8 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/again"
-			android:onClick="next"
-			android:layout_below="@id/buttons"
-			android:layout_alignParentLeft="true"/>
+			android:onClick="next"/>
 
-	</RelativeLayout>
+	</LinearLayout>
 
 </LinearLayout>
