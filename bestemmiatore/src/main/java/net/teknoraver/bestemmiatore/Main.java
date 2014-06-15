@@ -15,6 +15,9 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
@@ -39,6 +42,9 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 		text = (TextView) findViewById(R.id.text);
 		pref = (ImageButton) findViewById(R.id.pref);
 		prefs = getSharedPreferences("bestemmie", MODE_PRIVATE);
+
+		AdView adView = (AdView) findViewById(R.id.adView);
+		adView.loadAd(new AdRequest.Builder().build());
 
 		tts = new TextToSpeech(this, this);
 

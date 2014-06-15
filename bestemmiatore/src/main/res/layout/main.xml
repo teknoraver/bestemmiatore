@@ -1,5 +1,7 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:ads="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -8,11 +10,19 @@
 	android:paddingBottom="@dimen/activity_vertical_margin"
 	tools:context=".Main">
 
+	<com.google.android.gms.ads.AdView
+		android:id="@+id/adView"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		ads:adUnitId="ca-app-pub-6782149331693535/7290619204"
+		ads:adSize="SMART_BANNER"/>
+
 	<TextView
 		android:id="@+id/text"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:textSize="20sp" />
+		android:textSize="20sp"
+		android:layout_below="@id/adView"/>
 
 	<LinearLayout
 		android:id="@+id/buttons"
