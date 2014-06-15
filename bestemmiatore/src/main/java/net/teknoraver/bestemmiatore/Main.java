@@ -34,6 +34,8 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
+		setTitle(R.string.app_name);
+
 		text = (TextView) findViewById(R.id.text);
 		pref = (ImageButton) findViewById(R.id.pref);
 		prefs = getSharedPreferences("bestemmie", MODE_PRIVATE);
@@ -73,17 +75,16 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	}
 
 	public void next(View v) {
-		switch((int)(Math.random() * 3)) {
+		int rnd = (int)(Math.random() * 4);
+		switch(rnd) {
 		case 0:
-			bestemmia = aggettivi[(int) (Math.random() * aggettivi.length)];
-			bestemmia = getString(R.string.b1, bestemmia);
-			break;
 		case 1:
-			bestemmia = aggettivi[(int) (Math.random() * aggettivi.length)];
-			bestemmia = getString(R.string.b2, bestemmia);
-			break;
 		case 2:
-			bestemmia = getString(R.string.b3, santi[(int) (Math.random() * santi.length)]);
+			bestemmia = aggettivi[(int) (Math.random() * aggettivi.length)];
+			bestemmia = getString(R.string.b1 + rnd, bestemmia);
+			break;
+		case 3:
+			bestemmia = getString(R.string.b4, santi[(int) (Math.random() * santi.length)]);
 			break;
 		}
 
