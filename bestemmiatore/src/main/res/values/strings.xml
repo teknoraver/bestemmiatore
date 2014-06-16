@@ -12,7 +12,7 @@
 	<string name="b1">Dio %sato</string>
 	<string name="b2">Cristo %sato</string>
 	<string name="b3">Madonna %sata</string>
-	<string name="b4">Mannaggia San %s</string>
+	<string name="b4">Mannaggia %s</string>
 	<string name="noprefs">Nessun preferito</string>
 	<string name="launcher_label">Bestemmiatore</string>
 </resources>
