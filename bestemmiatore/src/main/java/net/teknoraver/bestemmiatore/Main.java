@@ -12,7 +12,7 @@ import android.speech.tts.TextToSpeech;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -27,7 +27,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	private String santi[];
 	private TextToSpeech tts;
 	private TextView text;
-	private ImageButton pref;
+	private Button pref;
 	private String bestemmia;
 	private SharedPreferences prefs;
 	private int BESTEMMIA = 1;
@@ -40,7 +40,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 		setTitle(R.string.app_name);
 
 		text = (TextView) findViewById(R.id.text);
-		pref = (ImageButton) findViewById(R.id.pref);
+		pref = (Button) findViewById(R.id.pref);
 		prefs = getSharedPreferences("bestemmie", MODE_PRIVATE);
 
 		AdView adView = (AdView) findViewById(R.id.adView);
@@ -72,9 +72,9 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 
 	public void play(View v) {
 		if(prefs.getBoolean(bestemmia, false))
-			pref.setImageResource(R.drawable.btn_star_on_normal_holo_light);
+			pref.setBackgroundResource(R.drawable.btn_star_on_normal_holo_light);
 		else
-			pref.setImageResource(R.drawable.btn_star_off_normal_holo_light);
+			pref.setBackgroundResource(R.drawable.btn_star_off_normal_holo_light);
 
 		text.setText(bestemmia);
 		tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, null);
@@ -135,14 +135,14 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	}
 
 	public void pref(View v) {
-		ImageButton pref = (ImageButton) v;
+		Button pref = (Button) v;
 		SharedPreferences.Editor edit = prefs.edit();
 		if(prefs.getBoolean(bestemmia, false)) {
 			edit.remove(bestemmia);
-			pref.setImageResource(R.drawable.btn_star_off_normal_holo_light);
+			pref.setBackgroundResource(R.drawable.btn_star_off_normal_holo_light);
 		} else {
 			edit.putBoolean(bestemmia, true).commit();
-			pref.setImageResource(R.drawable.btn_star_on_normal_holo_light);
+			pref.setBackgroundResource(R.drawable.btn_star_on_normal_holo_light);
 		}
 		edit.commit();
 	}

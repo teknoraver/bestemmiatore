@@ -1,4 +1,4 @@
-<LinearLayout
+<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	xmlns:ads="http://schemas.android.com/apk/res-auto"
@@ -16,53 +16,65 @@
 		android:layout_height="wrap_content"
 		android:layout_width="fill_parent"
 		ads:adUnitId="ca-app-pub-6782149331693535/7290619204"
-		ads:adSize="BANNER"/>
+		ads:adSize="BANNER"
+		android:layout_alignParentTop="true"
+		android:layout_centerHorizontal="true"/>
 
 	<TextView
 		android:id="@+id/text"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:textSize="20sp"/>
+		android:textSize="30sp"
+		android:layout_below="@+id/adView"
+		android:layout_centerHorizontal="true"/>
 
-	<LinearLayout
-		android:id="@+id/buttons"
+	<Button
+		android:id="@+id/play"
 		android:layout_width="wrap_content"
-		android:layout_height="wrap_content">
+		android:layout_height="wrap_content"
+		android:contentDescription="@string/play"
+		android:onClick="play"
+		android:background="@drawable/ic_lock_silent_mode_off"
+		style="@style/button"
+		android:layout_below="@+id/again"
+		android:layout_centerHorizontal="true"/>
 
-		<ImageButton
-			android:id="@+id/play"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:contentDescription="@string/play"
-			android:onClick="play"
-			android:src="@drawable/ic_lock_silent_mode_off"
-			style="@style/button"/>
+	<Button
+		android:id="@+id/share"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:contentDescription="@string/share"
+		android:onClick="share"
+		android:background="@drawable/ic_menu_share_holo_light"
+		style="@style/button"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentEnd="true"/>
 
-		<ImageButton
-			android:id="@+id/share"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:contentDescription="@string/share"
-			android:onClick="share"
-			android:src="@drawable/ic_menu_share_holo_light"
-			style="@style/button"/>
-
-		<ImageButton
-			android:id="@+id/pref"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:contentDescription="@string/pref"
-			android:onClick="pref"
-			android:src="@drawable/btn_star_off_normal_holo_light"
-			style="@style/button"/>
-
-	</LinearLayout>
+	<Button
+		android:id="@+id/pref"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:contentDescription="@string/pref"
+		android:onClick="pref"
+		android:background="@drawable/btn_star_off_normal_holo_light"
+		style="@style/button"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentStart="true"/>
 
 	<Button
 		android:id="@+id/again"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="@string/again"
-		android:onClick="next"/>
+		android:contentDescription="@string/again"
+		android:onClick="next"
+		android:background="@drawable/ic_menu_refresh"
+		android:minWidth="200dp"
+		android:maxWidth="200dp"
+		android:minHeight="200dp"
+		android:maxHeight="200dp"
+		android:layout_centerVertical="true"
+		android:layout_centerHorizontal="true"/>
 
-</LinearLayout>
+</RelativeLayout>
