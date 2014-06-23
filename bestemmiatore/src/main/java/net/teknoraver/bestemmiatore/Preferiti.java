@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,7 +29,7 @@ public class Preferiti extends ListActivity {
 
 			@Override
 			public void onClick(View view) {
-				final Button star = (Button) view;
+				final ImageButton star = (ImageButton) view;
 				String selected = adapter.getItem(position);
 				SharedPreferences.Editor editor = prefs.edit();
 
@@ -53,7 +53,7 @@ public class Preferiti extends ListActivity {
 			if (convertView == null)
 				convertView = getLayoutInflater().inflate(R.layout.pref, null);
 
-			final Button star = (Button) convertView.findViewById(R.id.pref_star);
+			final ImageButton star = (ImageButton) convertView.findViewById(R.id.pref_star);
 			star.setOnClickListener(new StarClickListener(position));
 
 			final TextView text = (TextView) convertView.findViewById(R.id.pref_text);
