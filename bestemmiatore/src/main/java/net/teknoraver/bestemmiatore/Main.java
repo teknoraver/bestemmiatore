@@ -12,7 +12,7 @@ import android.speech.tts.TextToSpeech;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -27,7 +27,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	private String santi[];
 	private TextToSpeech tts;
 	private TextView text;
-	private Button pref;
+	private ImageButton pref;
 	private String bestemmia;
 	private SharedPreferences prefs;
 	private int BESTEMMIA = 1;
@@ -40,7 +40,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 		setTitle(R.string.app_name);
 
 		text = (TextView) findViewById(R.id.text);
-		pref = (Button) findViewById(R.id.pref);
+		pref = (ImageButton) findViewById(R.id.pref);
 		prefs = getSharedPreferences("bestemmie", MODE_PRIVATE);
 
 		AdView adView = (AdView) findViewById(R.id.adView);
@@ -135,7 +135,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	}
 
 	public void pref(View v) {
-		Button pref = (Button) v;
+		ImageButton pref = (ImageButton) v;
 		SharedPreferences.Editor edit = prefs.edit();
 		if(prefs.getBoolean(bestemmia, false)) {
 			edit.remove(bestemmia);

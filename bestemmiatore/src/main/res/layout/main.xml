@@ -9,7 +9,8 @@
 	android:paddingRight="@dimen/activity_horizontal_margin"
 	android:paddingTop="@dimen/activity_vertical_margin"
 	android:paddingBottom="@dimen/activity_vertical_margin"
-	android:orientation="vertical">
+	android:orientation="vertical"
+	android:background="@drawable/background">
 
 	<com.google.android.gms.ads.AdView
 		android:id="@+id/adView"
@@ -28,53 +29,47 @@
 		android:layout_below="@+id/adView"
 		android:layout_centerHorizontal="true"/>
 
-	<Button
-		android:id="@+id/play"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:contentDescription="@string/play"
-		android:onClick="play"
-		android:background="@drawable/ic_lock_silent_mode_off"
-		style="@style/button"
-		android:layout_below="@+id/again"
-		android:layout_centerHorizontal="true"/>
-
-	<Button
-		android:id="@+id/share"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:contentDescription="@string/share"
-		android:onClick="share"
-		android:background="@drawable/ic_menu_share_holo_light"
-		style="@style/button"
-		android:layout_alignParentBottom="true"
-		android:layout_alignParentRight="true"
-		android:layout_alignParentEnd="true"/>
-
-	<Button
-		android:id="@+id/pref"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:contentDescription="@string/pref"
-		android:onClick="pref"
-		android:background="@drawable/btn_star_off_normal_holo_light"
-		style="@style/button"
-		android:layout_alignParentBottom="true"
-		android:layout_alignParentLeft="true"
-		android:layout_alignParentStart="true"/>
-
-	<Button
+	<ImageButton
 		android:id="@+id/again"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:contentDescription="@string/again"
 		android:onClick="next"
 		android:background="@drawable/ic_menu_refresh"
-		android:minWidth="200dp"
-		android:maxWidth="200dp"
-		android:minHeight="200dp"
-		android:maxHeight="200dp"
 		android:layout_centerVertical="true"
 		android:layout_centerHorizontal="true"/>
+
+	<ImageButton
+		android:id="@+id/play"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:contentDescription="@string/play"
+		android:onClick="play"
+		android:background="@drawable/ic_lock_silent_mode_off"
+		android:layout_marginTop="20dp"
+		android:layout_below="@+id/again"
+		android:layout_centerHorizontal="true"/>
+
+	<ImageButton
+		android:id="@+id/share"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:contentDescription="@string/share"
+		android:onClick="share"
+		android:background="@drawable/ic_menu_share_holo_light"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentEnd="true"/>
+
+	<ImageButton
+		android:id="@+id/pref"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:contentDescription="@string/pref"
+		android:onClick="pref"
+		android:background="@drawable/btn_star_off_normal_holo_light"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentStart="true"/>
 
 </RelativeLayout>

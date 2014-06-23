@@ -6,16 +6,17 @@
 	android:layout_height="fill_parent"
 	android:descendantFocusability="blocksDescendants">
 
-	<ImageButton
+	<Button
 		android:layout_width="wrap_content"
-		android:layout_height="fill_parent"
+		android:layout_height="wrap_content"
 		android:id="@+id/pref_star"
-		android:src="@drawable/btn_star_on_normal_holo_light"
-		style="@style/button"/>
+		android:background="@drawable/btn_star_on_normal_holo_light"
+		android:gravity="center_vertical"
+		style="@style/minbutton"/>
 
 	<TextView
 		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
+		android:layout_height="wrap_content"
 		android:id="@+id/pref_text"
 		android:textSize="20sp"
 		android:gravity="center_vertical"/>

@@ -8,6 +8,10 @@
 	<string name="pref">salva nei preferiti</string>
 	<string name="again">bestemmia di nuovo</string>
 	<string name="shareas">Invia come</string>
+	<array name="shareas">
+		<item>Testo</item>
+		<item>Audio</item>
+	</array>
 
 	<string name="b1">Dio %sato</string>
 	<string name="b2">Cristo %sato</string>

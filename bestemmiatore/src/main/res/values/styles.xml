@@ -1,15 +1,23 @@
 <resources>
 
-	<!-- Base application theme. -->
 	<style name="AppTheme" parent="android:Theme.Light">
-		<!-- Customize your theme here. -->
+
 	</style>
 	<dimen name="button">100dp</dimen>
+	<dimen name="minbutton">20dp</dimen>
 	<style name="button">
 		<item name="android:minWidth">@dimen/button</item>
 		<item name="android:maxWidth">@dimen/button</item>
 		<item name="android:minHeight">@dimen/button</item>
 		<item name="android:maxHeight">@dimen/button</item>
+		<item name="android:padding">5dp</item>
+<!--		<item name="android:background">@android:color/transparent</item> -->
+	</style>
+	<style name="minbutton">
+		<item name="android:minWidth">@dimen/minbutton</item>
+		<item name="android:maxWidth">@dimen/minbutton</item>
+		<item name="android:minHeight">@dimen/minbutton</item>
+		<item name="android:maxHeight">@dimen/minbutton</item>
 		<item name="android:padding">5dp</item>
 	</style>
 

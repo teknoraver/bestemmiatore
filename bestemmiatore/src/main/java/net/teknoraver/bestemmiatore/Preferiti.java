@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,15 +29,15 @@ public class Preferiti extends ListActivity {
 
 			@Override
 			public void onClick(View view) {
-				final ImageButton star = (ImageButton) view;
+				final Button star = (Button) view;
 				String selected = adapter.getItem(position);
 				SharedPreferences.Editor editor = prefs.edit();
 
 				if(prefs.contains(selected)) {
-					star.setImageResource(R.drawable.btn_star_off_normal_holo_light);
+					star.setBackgroundResource(R.drawable.btn_star_off_normal_holo_light);
 					editor.remove(selected);
 				} else {
-					star.setImageResource(R.drawable.btn_star_on_normal_holo_light);
+					star.setBackgroundResource(R.drawable.btn_star_on_normal_holo_light);
 					editor.putBoolean(selected, true);
 				}
 				editor.commit();
@@ -53,7 +53,7 @@ public class Preferiti extends ListActivity {
 			if (convertView == null)
 				convertView = getLayoutInflater().inflate(R.layout.pref, null);
 
-			final ImageButton star = (ImageButton) convertView.findViewById(R.id.pref_star);
+			final Button star = (Button) convertView.findViewById(R.id.pref_star);
 			star.setOnClickListener(new StarClickListener(position));
 
 			final TextView text = (TextView) convertView.findViewById(R.id.pref_text);
