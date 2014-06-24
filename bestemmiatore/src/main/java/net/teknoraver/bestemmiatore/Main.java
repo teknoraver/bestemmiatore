@@ -72,9 +72,9 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 
 	public void play(View v) {
 		if(prefs.getBoolean(bestemmia, false))
-			pref.setBackgroundResource(R.drawable.btn_star_on_normal_holo_light);
+			pref.setBackgroundResource(R.drawable.star_on);
 		else
-			pref.setBackgroundResource(R.drawable.btn_star_off_normal_holo_light);
+			pref.setBackgroundResource(R.drawable.star_off);
 
 		text.setText(bestemmia);
 		tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, null);
@@ -139,10 +139,10 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 		SharedPreferences.Editor edit = prefs.edit();
 		if(prefs.getBoolean(bestemmia, false)) {
 			edit.remove(bestemmia);
-			pref.setBackgroundResource(R.drawable.btn_star_off_normal_holo_light);
+			pref.setBackgroundResource(R.drawable.star_off);
 		} else {
 			edit.putBoolean(bestemmia, true).commit();
-			pref.setBackgroundResource(R.drawable.btn_star_on_normal_holo_light);
+			pref.setBackgroundResource(R.drawable.star_on);
 		}
 		edit.commit();
 	}

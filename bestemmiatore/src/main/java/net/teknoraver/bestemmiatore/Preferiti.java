@@ -34,10 +34,10 @@ public class Preferiti extends ListActivity {
 				SharedPreferences.Editor editor = prefs.edit();
 
 				if(prefs.contains(selected)) {
-					star.setBackgroundResource(R.drawable.btn_star_off_normal_holo_light);
+					star.setBackgroundResource(R.drawable.star_off);
 					editor.remove(selected);
 				} else {
-					star.setBackgroundResource(R.drawable.btn_star_on_normal_holo_light);
+					star.setBackgroundResource(R.drawable.star_on);
 					editor.putBoolean(selected, true);
 				}
 				editor.commit();
