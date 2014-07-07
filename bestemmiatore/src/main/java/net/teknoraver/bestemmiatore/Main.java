@@ -31,6 +31,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	private String bestemmia;
 	private SharedPreferences prefs;
 	private int BESTEMMIA = 1;
+	private boolean preferred;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,13 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 		next(null);
 	}
 
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+
+		setStar();
+	}
+
 	/*
 	private ArrayList<String> grep(int id, String regexp) {
 		BufferedReader dict = new BufferedReader(new InputStreamReader(getResources().openRawResource(id)));
@@ -71,13 +79,16 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	}*/
 
 	public void play(View v) {
-		if(prefs.getBoolean(bestemmia, false))
+		text.setText(bestemmia);
+		tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, null);
+	}
+
+	public void setStar() {
+		preferred = prefs.getBoolean(bestemmia, false);
+		if(preferred)
 			pref.setBackgroundResource(R.drawable.star_on);
 		else
 			pref.setBackgroundResource(R.drawable.star_off);
-
-		text.setText(bestemmia);
-		tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, null);
 	}
 
 	public void next(View v) {
@@ -94,6 +105,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 			break;
 		}
 
+		setStar();
 		play(null);
 	}
 
@@ -137,7 +149,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	public void pref(View v) {
 		ImageButton pref = (ImageButton) v;
 		SharedPreferences.Editor edit = prefs.edit();
-		if(prefs.getBoolean(bestemmia, false)) {
+		if(preferred) {
 			edit.remove(bestemmia);
 			pref.setBackgroundResource(R.drawable.star_off);
 		} else {
@@ -145,6 +157,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 			pref.setBackgroundResource(R.drawable.star_on);
 		}
 		edit.commit();
+		preferred = !preferred;
 	}
 
 	@Override
