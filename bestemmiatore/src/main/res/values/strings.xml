@@ -19,4 +19,6 @@
 	<string name="b4">Mannaggia %s</string>
 	<string name="noprefs">Nessun preferito</string>
 	<string name="launcher_label">Bestemmiatore</string>
+    <string name="waverr">Errore condividendo il file audio</string>
+	<string name="loop">bestemmia continua</string>
 </resources>

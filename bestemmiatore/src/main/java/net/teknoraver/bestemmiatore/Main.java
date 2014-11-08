@@ -6,23 +6,27 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Locale;
 
-public class Main extends Activity implements TextToSpeech.OnInitListener {
+public class Main extends Activity implements TextToSpeech.OnInitListener, TextToSpeech.OnUtteranceCompletedListener {
 	private String aggettivi[];
 	private String santi[];
 	private TextToSpeech tts;
@@ -32,6 +36,19 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	private SharedPreferences prefs;
 	private int BESTEMMIA = 1;
 	private boolean preferred;
+	private boolean loop;
+
+	private class Looper extends AsyncTask<Void, Void, Void> {
+		@Override
+		protected Void doInBackground(Void... voids) {
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void aVoid) {
+			next(null);
+		}
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -79,8 +96,11 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	}*/
 
 	public void play(View v) {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "id");
+
 		text.setText(bestemmia);
-		tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, null);
+		tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, params);
 	}
 
 	public void setStar() {
@@ -92,6 +112,9 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	}
 
 	public void next(View v) {
+		if(loop && tts.isSpeaking())
+			return;
+
 		int rnd = (int)(Math.random() * 4);
 		switch(rnd) {
 		case 0:
@@ -127,23 +150,24 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 
 	public void share(View view) throws IOException {
 		new AlertDialog.Builder(this)
-		.setTitle(getString(R.string.shareas))
-		.setItems(R.array.shareas, new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialogInterface, int i) {
-				switch (i) {
-				case 0: shareText();
-					break;
-				case 1:
-					try {
-						shareAudio();
-					} catch (IOException e) {
-						e.printStackTrace();
+			.setTitle(getString(R.string.shareas))
+			.setItems(R.array.shareas, new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialogInterface, int i) {
+					switch (i) {
+					case 0:
+						shareText();
+						break;
+					case 1:
+						try {
+							shareAudio();
+						} catch (IOException e) {
+							Toast.makeText(Main.this, R.string.waverr, Toast.LENGTH_SHORT);
+							e.printStackTrace();
+						}
 					}
-					break;
 				}
-			}
-		}).show();
+			}).show();
 	}
 
 	public void pref(View v) {
@@ -153,7 +177,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 			edit.remove(bestemmia);
 			pref.setBackgroundResource(R.drawable.star_off);
 		} else {
-			edit.putBoolean(bestemmia, true).commit();
+			edit.putBoolean(bestemmia, true);
 			pref.setBackgroundResource(R.drawable.star_on);
 		}
 		edit.commit();
@@ -171,6 +195,10 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 		switch (item.getItemId()) {
 		case R.id.action_prefs:
 			startActivityForResult(new Intent(this, Preferiti.class), BESTEMMIA);
+			return true;
+		case R.id.action_loop:
+			loop = !loop;
+			item.setChecked(loop);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -191,7 +219,18 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	@Override
 	public void onInit(final int status) {
 		tts.setLanguage(Locale.ITALIAN);
+		tts.setOnUtteranceCompletedListener(this);
 		if(bestemmia != null)
 			play(null);
+	}
+
+	@Override
+	public void onUtteranceCompleted(String s) {
+		if(!loop)
+			return;
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) { }
+		new Looper().execute((Void) null);
 	}
 }
