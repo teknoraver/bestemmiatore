@@ -141,7 +141,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 	private void shareAudio() throws IOException {
 		File outputFile = File.createTempFile("bestemmia", ".wav", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));
 		outputFile.deleteOnExit();
-		tts.synthesizeToFile(bestemmia, null, outputFile.getAbsolutePath());
+		tts.synthesizeToFile(bestemmia, new HashMap<String, String>(), outputFile.getAbsolutePath());
 		startActivity(
 			new Intent(Intent.ACTION_SEND)
 				.setType("audio/*")
