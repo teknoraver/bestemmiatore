@@ -37,6 +37,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 	private int BESTEMMIA = 1;
 	private boolean preferred;
 	private boolean loop;
+	private HashMap<String, String> params = new HashMap<String, String>();
 
 	private class Looper extends AsyncTask<Void, Void, Void> {
 		@Override
@@ -69,6 +70,8 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 		aggettivi = getResources().getStringArray(R.array.aggettivi);
 		santi = getResources().getStringArray(R.array.tuttisanti);
 
+		params.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "id");
+
 		next(null);
 	}
 
@@ -96,9 +99,6 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 	}*/
 
 	public void play(View v) {
-		HashMap<String, String> params = new HashMap<String, String>();
-		params.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "id");
-
 		text.setText(bestemmia);
 		tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, params);
 	}
@@ -141,7 +141,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 	private void shareAudio() throws IOException {
 		File outputFile = File.createTempFile("bestemmia", ".wav", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));
 		outputFile.deleteOnExit();
-		tts.synthesizeToFile(bestemmia, new HashMap<String, String>(), outputFile.getAbsolutePath());
+		tts.synthesizeToFile(bestemmia, params, outputFile.getAbsolutePath());
 		startActivity(
 			new Intent(Intent.ACTION_SEND)
 				.setType("audio/*")
