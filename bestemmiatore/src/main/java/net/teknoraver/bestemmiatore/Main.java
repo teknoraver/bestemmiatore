@@ -133,9 +133,9 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 	}
 
 	private void shareText() {
-		startActivity(new Intent(android.content.Intent.ACTION_SEND)
+		startActivity(new Intent(Intent.ACTION_SEND)
 			.setType("text/plain")
-			.putExtra(android.content.Intent.EXTRA_TEXT, bestemmia));
+			.putExtra(Intent.EXTRA_TEXT, bestemmia));
 	}
 
 	private void shareAudio() throws IOException {
