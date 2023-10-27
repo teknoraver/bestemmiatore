@@ -12,21 +12,12 @@
 	android:orientation="vertical"
 	android:background="@drawable/background">
 
-	<com.google.android.gms.ads.AdView
-		android:id="@+id/adView"
-		android:layout_height="wrap_content"
-		android:layout_width="fill_parent"
-		ads:adUnitId="ca-app-pub-6782149331693535/7290619204"
-		ads:adSize="BANNER"
-		android:layout_alignParentTop="true"
-		android:layout_centerHorizontal="true"/>
-
 	<TextView
 		android:id="@+id/text"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:textSize="30sp"
-		android:layout_below="@+id/adView"
+		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"/>
 
 	<ImageButton

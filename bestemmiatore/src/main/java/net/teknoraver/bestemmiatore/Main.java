@@ -18,9 +18,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -61,9 +58,6 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 		text = (TextView) findViewById(R.id.text);
 		pref = (ImageButton) findViewById(R.id.pref);
 		prefs = getSharedPreferences("bestemmie", MODE_PRIVATE);
-
-		AdView adView = (AdView) findViewById(R.id.adView);
-		adView.loadAd(new AdRequest.Builder().build());
 
 		tts = new TextToSpeech(this, this);
 
@@ -192,17 +186,16 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.action_prefs:
+		if (item.getItemId() == R.id.action_prefs) {
 			startActivityForResult(new Intent(this, Preferiti.class), BESTEMMIA);
 			return true;
-		case R.id.action_loop:
+		}
+		if (item.getItemId() == R.id.action_loop) {
 			loop = !loop;
 			item.setChecked(loop);
 			return true;
-		default:
-			return super.onOptionsItemSelected(item);
 		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
