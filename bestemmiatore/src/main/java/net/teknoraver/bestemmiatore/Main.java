@@ -10,7 +10,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.speech.tts.TextToSpeech;
-import android.speech.tts.UtteranceProgressListener;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,17 +23,17 @@ import java.util.HashMap;
 import java.util.Locale;
 
 public class Main extends Activity implements TextToSpeech.OnInitListener, TextToSpeech.OnUtteranceCompletedListener {
-	private String aggettivi[];
-	private String santi[];
+	private String[] aggettivi;
+	private String[] santi;
 	private TextToSpeech tts;
 	private TextView text;
 	private ImageButton pref;
 	private String bestemmia;
 	private SharedPreferences prefs;
-	private int BESTEMMIA = 1;
+	private final int BESTEMMIA = 1;
 	private boolean preferred;
 	private boolean loop;
-	private HashMap<String, String> params = new HashMap<String, String>();
+	private final HashMap<String, String> params = new HashMap<>();
 
 	private class Looper extends AsyncTask<Void, Void, Void> {
 		@Override
@@ -142,7 +141,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 				.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + outputFile.getAbsolutePath())));
 	}
 
-	public void share(View view) throws IOException {
+	public void share(View view) {
 		new AlertDialog.Builder(this)
 			.setTitle(getString(R.string.shareas))
 			.setItems(R.array.shareas, new DialogInterface.OnClickListener() {
@@ -156,7 +155,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 						try {
 							shareAudio();
 						} catch (IOException e) {
-							Toast.makeText(Main.this, R.string.waverr, Toast.LENGTH_SHORT);
+							Toast.makeText(Main.this, R.string.waverr, Toast.LENGTH_SHORT).show();
 							e.printStackTrace();
 						}
 					}
@@ -174,7 +173,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 			edit.putBoolean(bestemmia, true);
 			pref.setBackgroundResource(R.drawable.star_on);
 		}
-		edit.commit();
+		edit.apply();
 		preferred = !preferred;
 	}
 
@@ -223,7 +222,9 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 			return;
 		try {
 			Thread.sleep(1000);
-		} catch (InterruptedException e) { }
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		new Looper().execute((Void) null);
 	}
 }

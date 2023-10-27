@@ -40,11 +40,11 @@ public class Preferiti extends ListActivity {
 					star.setBackgroundResource(R.drawable.star_on);
 					editor.putBoolean(selected, true);
 				}
-				editor.commit();
+				editor.apply();
 			}
 		}
 
-		public Adapter(Context context, String objects[]) {
+		public Adapter(Context context, String[] objects) {
 			super(context, R.layout.pref, objects);
 		}
 
@@ -71,7 +71,7 @@ public class Preferiti extends ListActivity {
 		prefs = getSharedPreferences("bestemmie", MODE_PRIVATE);
 
 		Set<String> s = prefs.getAll().keySet();
-		String bestemmie[] = new String[s.size()];
+		String[] bestemmie = new String[s.size()];
 		s.toArray(bestemmie);
 		adapter = new Adapter(this, bestemmie);
 //		adapter = new Adapter(this, new String[0]);
