@@ -75,10 +75,10 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 		}
 
 		@Override
-		public void onStart(String utteranceId) { }
+		public void onStart(String utteranceId) {}
 
 		@Override
-		public void onError(String utteranceId) { }
+		public void onError(String utteranceId) {}
 	};
 
 	private final UtteranceProgressListener sharerListener = new UtteranceProgressListener() {
@@ -99,10 +99,10 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 		}
 
 		@Override
-		public void onStart(String utteranceId) { }
+		public void onStart(String utteranceId) {}
 
 		@Override
-		public void onError(String utteranceId) { }
+		public void onError(String utteranceId) {}
 	};
 
 	@Override
@@ -124,8 +124,8 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 
 		next(null);
 
-		if (Build.VERSION.SDK_INT >= 30){
-			if (!Environment.isExternalStorageManager()){
+		if (Build.VERSION.SDK_INT >= 30) {
+			if (!Environment.isExternalStorageManager()) {
 				Intent getpermission = new Intent();
 				getpermission.setAction(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
 				startActivity(getpermission);
@@ -142,23 +142,23 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 
 	public void play(View v) {
 		text.setText(bestemmia);
-		speaker.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, params, "speak-"+bestemmia.hashCode());
+		speaker.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, params, "speak-" + bestemmia.hashCode());
 	}
 
 	public void setStar() {
 		preferred = prefs.getBoolean(bestemmia, false);
-		if(preferred)
+		if (preferred)
 			pref.setBackgroundResource(R.drawable.star_on);
 		else
 			pref.setBackgroundResource(R.drawable.star_off);
 	}
 
 	public void next(View v) {
-		if(loop && speaker.isSpeaking())
+		if (loop && speaker.isSpeaking())
 			return;
 
-		int rnd = (int)(Math.random() * 4);
-		switch(rnd) {
+		int rnd = (int) (Math.random() * 4);
+		switch (rnd) {
 		case 0:
 		case 1:
 		case 2:
@@ -301,7 +301,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	public void pref(View v) {
 		ImageButton pref = (ImageButton) v;
 		SharedPreferences.Editor edit = prefs.edit();
-		if(preferred) {
+		if (preferred) {
 			edit.remove(bestemmia);
 			pref.setBackgroundResource(R.drawable.star_off);
 		} else {
@@ -334,7 +334,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if(requestCode != BESTEMMIA || data == null) {
+		if (requestCode != BESTEMMIA || data == null) {
 			super.onActivityResult(requestCode, resultCode, data);
 			return;
 		}
@@ -349,7 +349,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 		speaker.setOnUtteranceProgressListener(speakerListener);
 		sharer.setLanguage(Locale.ITALIAN);
 		sharer.setOnUtteranceProgressListener(sharerListener);
-		if(bestemmia != null)
+		if (bestemmia != null)
 			play(null);
 	}
 }

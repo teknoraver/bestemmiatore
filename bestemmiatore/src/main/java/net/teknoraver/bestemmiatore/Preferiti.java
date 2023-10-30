@@ -33,7 +33,7 @@ public class Preferiti extends ListActivity {
 				String selected = adapter.getItem(position);
 				SharedPreferences.Editor editor = prefs.edit();
 
-				if(prefs.contains(selected)) {
+				if (prefs.contains(selected)) {
 					star.setBackgroundResource(R.drawable.star_off);
 					editor.remove(selected);
 				} else {
