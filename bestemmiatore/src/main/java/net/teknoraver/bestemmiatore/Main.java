@@ -119,6 +119,11 @@ public class Main extends Activity {
 		pref = (ImageButton) findViewById(R.id.pref);
 		prefs = getSharedPreferences("bestemmie", MODE_PRIVATE);
 
+		aggettivi = getResources().getStringArray(R.array.aggettivi);
+		santi = getResources().getStringArray(R.array.tuttisanti);
+
+		next(null);
+
 		tts = new TextToSpeech(this, (final int status) -> {
 			if (status != TextToSpeech.SUCCESS)
 				return;
@@ -128,11 +133,6 @@ public class Main extends Activity {
 			if (bestemmia != null)
 				play(null);
 		});
-
-		aggettivi = getResources().getStringArray(R.array.aggettivi);
-		santi = getResources().getStringArray(R.array.tuttisanti);
-
-		next(null);
 	}
 
 	@Override
@@ -144,7 +144,9 @@ public class Main extends Activity {
 
 	public void play(View v) {
 		text.setText(bestemmia);
-		tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, params, "speak-" + bestemmia.hashCode());
+
+		if (tts != null)
+			tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, params, "speak-" + bestemmia.hashCode());
 	}
 
 	public void setStar() {
@@ -156,7 +158,7 @@ public class Main extends Activity {
 	}
 
 	public void next(View v) {
-		if (loop && tts.isSpeaking())
+		if (loop && tts != null && tts.isSpeaking())
 			return;
 
 		int rnd = (int) (Math.random() * 4);
