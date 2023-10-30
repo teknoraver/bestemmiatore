@@ -12,10 +12,11 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.Settings;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
@@ -47,18 +48,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	private boolean preferred;
 	private boolean loop;
 	private final Bundle params = new Bundle();
-
-	private class Looper extends AsyncTask<Void, Void, Void> {
-		@Override
-		protected Void doInBackground(Void... voids) {
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(Void aVoid) {
-			next(null);
-		}
-	}
+	private final Handler looper = new Handler(Looper.getMainLooper());
 
 
 	private final UtteranceProgressListener speakerListener = new UtteranceProgressListener() {
@@ -66,12 +56,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 		public void onDone(String utteranceId) {
 			if (!loop)
 				return;
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			new Looper().execute((Void) null);
+			looper.postDelayed(() -> next(null), 1000);
 		}
 
 		@Override
