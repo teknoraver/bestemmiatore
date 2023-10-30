@@ -347,6 +347,7 @@ public class Main extends Activity {
 		}
 
 		bestemmia = data.getStringExtra(Preferiti.BESTEMMIA);
+		setStar();
 		play(null);
 	}
 }
