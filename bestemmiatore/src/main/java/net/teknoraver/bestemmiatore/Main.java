@@ -298,20 +298,17 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	public void share(View view) {
 		new AlertDialog.Builder(this)
 				.setTitle(getString(R.string.shareas))
-				.setItems(R.array.shareas, new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialogInterface, int i) {
-						switch (i) {
-						case 0:
-							shareText();
-							break;
-						case 1:
-							try {
-								shareAudio();
-							} catch (IOException e) {
-								Toast.makeText(Main.this, R.string.waverr, Toast.LENGTH_SHORT).show();
-								e.printStackTrace();
-							}
+				.setItems(R.array.shareas, (DialogInterface dialogInterface, int i) -> {
+					switch (i) {
+					case 0:
+						shareText();
+						break;
+					case 1:
+						try {
+							shareAudio();
+						} catch (IOException e) {
+							Toast.makeText(Main.this, R.string.waverr, Toast.LENGTH_SHORT).show();
+							e.printStackTrace();
 						}
 					}
 				}).show();
