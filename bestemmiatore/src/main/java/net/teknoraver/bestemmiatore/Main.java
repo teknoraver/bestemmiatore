@@ -36,10 +36,10 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Locale;
 
-public class Main extends Activity implements TextToSpeech.OnInitListener {
+public class Main extends Activity {
 	private String[] aggettivi;
 	private String[] santi;
-	private TextToSpeech speaker, sharer;
+	private TextToSpeech tts;
 	private TextView text;
 	private ImageButton pref;
 	private String bestemmia;
@@ -51,12 +51,30 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	private final Handler looper = new Handler(Looper.getMainLooper());
 
 
-	private final UtteranceProgressListener speakerListener = new UtteranceProgressListener() {
+	private final UtteranceProgressListener ttsListener = new UtteranceProgressListener() {
 		@Override
 		public void onDone(String utteranceId) {
-			if (!loop)
-				return;
-			looper.postDelayed(() -> next(null), 1000);
+			File dumpFile = new File(utteranceId);
+			// Speak
+			if (utteranceId.startsWith("speak-")) {
+				if (!loop)
+					return;
+				looper.postDelayed(() -> next(null), 1000);
+			} else if (dumpFile.exists()) {
+				// Export to file
+				File aac = wavToAac(utteranceId);
+				if (aac != null) {
+					Uri fileUri = FileProvider.getUriForFile(Main.this, "net.teknoraver.bestemmiatore.fileprovider", aac);
+					startActivity(
+							new Intent(Intent.ACTION_SEND)
+									.setType("audio/mp4")
+									.putExtra(Intent.EXTRA_STREAM, fileUri));
+				} else {
+					Toast.makeText(Main.this, R.string.enc_err, Toast.LENGTH_SHORT).show();
+					return;
+				}
+				dumpFile.delete();
+			}
 		}
 
 		@Override
@@ -101,8 +119,12 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 		pref = (ImageButton) findViewById(R.id.pref);
 		prefs = getSharedPreferences("bestemmie", MODE_PRIVATE);
 
-		speaker = new TextToSpeech(this, this);
-		sharer = new TextToSpeech(this, this);
+		tts = new TextToSpeech(this, (final int status) -> {
+			tts.setLanguage(Locale.ITALIAN);
+			tts.setOnUtteranceProgressListener(ttsListener);
+			if (bestemmia != null)
+				play(null);
+		});
 
 		aggettivi = getResources().getStringArray(R.array.aggettivi);
 		santi = getResources().getStringArray(R.array.tuttisanti);
@@ -127,7 +149,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 
 	public void play(View v) {
 		text.setText(bestemmia);
-		speaker.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, params, "speak-" + bestemmia.hashCode());
+		tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, params, "speak-" + bestemmia.hashCode());
 	}
 
 	public void setStar() {
@@ -139,7 +161,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	}
 
 	public void next(View v) {
-		if (loop && speaker.isSpeaking())
+		if (loop && tts.isSpeaking())
 			return;
 
 		int rnd = (int) (Math.random() * 4);
@@ -168,7 +190,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 	private void shareAudio() {
 		try {
 			File outputFile = File.createTempFile("bestemmia", ".wav", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));
-			sharer.synthesizeToFile(bestemmia, params, outputFile, outputFile.getAbsolutePath());
+			tts.synthesizeToFile(bestemmia, params, outputFile, outputFile.getAbsolutePath());
 		} catch (IOException e) {
 			Toast.makeText(Main.this, R.string.waverr, Toast.LENGTH_SHORT).show();
 			e.printStackTrace();
@@ -326,15 +348,5 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 
 		bestemmia = data.getStringExtra(Preferiti.BESTEMMIA);
 		play(null);
-	}
-
-	@Override
-	public void onInit(final int status) {
-		speaker.setLanguage(Locale.ITALIAN);
-		speaker.setOnUtteranceProgressListener(speakerListener);
-		sharer.setLanguage(Locale.ITALIAN);
-		sharer.setOnUtteranceProgressListener(sharerListener);
-		if (bestemmia != null)
-			play(null);
 	}
 }
