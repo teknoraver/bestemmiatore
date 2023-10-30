@@ -196,9 +196,14 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 							  .putExtra(Intent.EXTRA_TEXT, bestemmia));
 	}
 
-	private void shareAudio() throws IOException {
-		File outputFile = File.createTempFile("bestemmia", ".wav", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));
-		sharer.synthesizeToFile(bestemmia, params, outputFile, outputFile.getAbsolutePath());
+	private void shareAudio() {
+		try {
+			File outputFile = File.createTempFile("bestemmia", ".wav", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));
+			sharer.synthesizeToFile(bestemmia, params, outputFile, outputFile.getAbsolutePath());
+		} catch (IOException e) {
+			Toast.makeText(Main.this, R.string.waverr, Toast.LENGTH_SHORT).show();
+			e.printStackTrace();
+		}
 	}
 
 	private static File wavToAac(String input) {
@@ -304,12 +309,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 						shareText();
 						break;
 					case 1:
-						try {
-							shareAudio();
-						} catch (IOException e) {
-							Toast.makeText(Main.this, R.string.waverr, Toast.LENGTH_SHORT).show();
-							e.printStackTrace();
-						}
+						shareAudio();
 					}
 				}).show();
 	}
