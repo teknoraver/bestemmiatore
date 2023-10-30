@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import androidx.core.content.FileProvider;
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -216,7 +217,10 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 			mediaExtractor.release();
 
 			FileInputStream fis = new FileInputStream(input);
-			fis.skip(44); // skip WAV header
+			// skip WAV header
+			if (fis.skip(44) != 44) {
+				throw new EOFException("Input file is too short");
+			}
 
 			outputFile = File.createTempFile("bestemmia", ".m4a", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));
 
@@ -225,7 +229,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 			MediaFormat outputFormat = MediaFormat.createAudioFormat(COMPRESSED_AUDIO_FILE_MIME_TYPE, srcSamplingRate, 1);
 			outputFormat.setInteger(MediaFormat.KEY_AAC_PROFILE, MediaCodecInfo.CodecProfileLevel.AACObjectLC);
 			outputFormat.setInteger(MediaFormat.KEY_BIT_RATE, COMPRESSED_AUDIO_FILE_BIT_RATE);
-			// outputFormat.setInteger(MediaFormat.KEY_MAX_INPUT_SIZE, 16384);
+			outputFormat.setInteger(MediaFormat.KEY_MAX_INPUT_SIZE, BUFFER_SIZE);
 
 			MediaCodecList mediaCodecList = new MediaCodecList(MediaCodecList.REGULAR_CODECS);
 			String codecName = mediaCodecList.findEncoderForFormat(outputFormat);
@@ -246,11 +250,9 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 					inputBufIndex = codec.dequeueInputBuffer(CODEC_TIMEOUT_IN_MS);
 
 					if (inputBufIndex >= 0) {
-						// ByteBuffer dstBuf = codecInputBuffers[inputBufIndex];
 						ByteBuffer dstBuf = codec.getInputBuffer(inputBufIndex);
 
 						int bytesRead = fis.read(tempBuffer, 0, dstBuf.limit());
-						System.out.println("bytesRead Readed "+bytesRead);
 						if (bytesRead == -1) { // -1 implies EOS
 							hasMoreData = false;
 							codec.queueInputBuffer(inputBufIndex, 0, 0, (long) presentationTimeUs, MediaCodec.BUFFER_FLAG_END_OF_STREAM);
@@ -258,7 +260,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 							totalBytesRead += bytesRead;
 							dstBuf.put(tempBuffer, 0, bytesRead);
 							codec.queueInputBuffer(inputBufIndex, 0, bytesRead, (long) presentationTimeUs, 0);
-							presentationTimeUs = 1000000l * (totalBytesRead / 2) / srcSamplingRate;
+							presentationTimeUs = 1000000.0 * totalBytesRead / 2 / srcSamplingRate;
 						}
 					}
 				}
@@ -278,24 +280,17 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 						}
 					} else if (outputBufIndex == MediaCodec.INFO_OUTPUT_FORMAT_CHANGED) {
 						outputFormat = codec.getOutputFormat();
-						System.out.println("Output format changed - " + outputFormat);
 						audioTrackIdx = mux.addTrack(outputFormat);
 						mux.start();
-					} else {
-						System.out.println("Unknown return code from dequeueOutputBuffer - " + outputBufIndex);
 					}
 				}
 			} while (outBuffInfo.flags != MediaCodec.BUFFER_FLAG_END_OF_STREAM);
 			fis.close();
 			mux.stop();
 			mux.release();
-			System.out.println("Compression done ...");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		//mStop = false;
-		// Notify UI thread...
 
 		return outputFile;
 	}
