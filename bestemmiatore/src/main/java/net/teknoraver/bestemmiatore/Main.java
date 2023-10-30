@@ -140,22 +140,6 @@ public class Main extends Activity implements TextToSpeech.OnInitListener {
 		setStar();
 	}
 
-	/*
-	private ArrayList<String> grep(int id, String regexp) {
-		BufferedReader dict = new BufferedReader(new InputStreamReader(getResources().openRawResource(id)));
-		ArrayList<String> ret = new ArrayList<>();
-		String w;
-		try {
-			while ((w = dict.readLine()) != null) {
-//                    if(regexp == null || w.matches(regexp))
-				ret.add(w);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return ret;
-	}*/
-
 	public void play(View v) {
 		text.setText(bestemmia);
 		speaker.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, params, "speak-"+bestemmia.hashCode());
