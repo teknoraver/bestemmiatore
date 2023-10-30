@@ -21,4 +21,5 @@
 	<string name="launcher_label">Bestemmiatore</string>
     <string name="waverr">Errore condividendo il file audio</string>
 	<string name="loop">bestemmia continua</string>
+    <string name="enc_err">Error encoding audio file</string>
 </resources>

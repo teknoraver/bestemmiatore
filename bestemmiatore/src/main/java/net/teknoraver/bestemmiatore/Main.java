@@ -5,11 +5,20 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaCodec;
+import android.media.MediaCodecInfo;
+import android.media.MediaCodecList;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
+import android.media.MediaMuxer;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.Settings;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,15 +26,18 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.content.FileProvider;
+
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.HashMap;
+import java.nio.ByteBuffer;
 import java.util.Locale;
 
-public class Main extends Activity implements TextToSpeech.OnInitListener, TextToSpeech.OnUtteranceCompletedListener {
+public class Main extends Activity implements TextToSpeech.OnInitListener {
 	private String[] aggettivi;
 	private String[] santi;
-	private TextToSpeech tts;
+	private TextToSpeech speaker, sharer;
 	private TextView text;
 	private ImageButton pref;
 	private String bestemmia;
@@ -33,7 +45,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 	private final int BESTEMMIA = 1;
 	private boolean preferred;
 	private boolean loop;
-	private final HashMap<String, String> params = new HashMap<>();
+	private final Bundle params = new Bundle();
 
 	private class Looper extends AsyncTask<Void, Void, Void> {
 		@Override
@@ -47,6 +59,51 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 		}
 	}
 
+
+	private final UtteranceProgressListener speakerListener = new UtteranceProgressListener() {
+		@Override
+		public void onDone(String utteranceId) {
+			if (!loop)
+				return;
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			new Looper().execute((Void) null);
+		}
+
+		@Override
+		public void onStart(String utteranceId) { }
+
+		@Override
+		public void onError(String utteranceId) { }
+	};
+
+	private final UtteranceProgressListener sharerListener = new UtteranceProgressListener() {
+		@Override
+		public void onDone(String inputFile) {
+			File aac = wavToAac(inputFile);
+			if (aac != null) {
+				Uri fileUri = FileProvider.getUriForFile(Main.this, "net.teknoraver.bestemmiatore.fileprovider", aac);
+				startActivity(
+						new Intent(Intent.ACTION_SEND)
+								.setType("audio/mp4")
+								.putExtra(Intent.EXTRA_STREAM, fileUri));
+			} else {
+				Toast.makeText(Main.this, R.string.enc_err, Toast.LENGTH_SHORT).show();
+				return;
+			}
+			new File(inputFile).delete();
+		}
+
+		@Override
+		public void onStart(String utteranceId) { }
+
+		@Override
+		public void onError(String utteranceId) { }
+	};
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -58,14 +115,21 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 		pref = (ImageButton) findViewById(R.id.pref);
 		prefs = getSharedPreferences("bestemmie", MODE_PRIVATE);
 
-		tts = new TextToSpeech(this, this);
+		speaker = new TextToSpeech(this, this);
+		sharer = new TextToSpeech(this, this);
 
 		aggettivi = getResources().getStringArray(R.array.aggettivi);
 		santi = getResources().getStringArray(R.array.tuttisanti);
 
-		params.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "id");
-
 		next(null);
+
+		if (Build.VERSION.SDK_INT >= 30){
+			if (!Environment.isExternalStorageManager()){
+				Intent getpermission = new Intent();
+				getpermission.setAction(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+				startActivity(getpermission);
+			}
+		}
 	}
 
 	@Override
@@ -93,7 +157,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 
 	public void play(View v) {
 		text.setText(bestemmia);
-		tts.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, params);
+		speaker.speak(bestemmia, TextToSpeech.QUEUE_FLUSH, params, "speak-"+bestemmia.hashCode());
 	}
 
 	public void setStar() {
@@ -105,7 +169,7 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 	}
 
 	public void next(View v) {
-		if(loop && tts.isSpeaking())
+		if(loop && speaker.isSpeaking())
 			return;
 
 		int rnd = (int)(Math.random() * 4);
@@ -133,12 +197,107 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 
 	private void shareAudio() throws IOException {
 		File outputFile = File.createTempFile("bestemmia", ".wav", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));
-		outputFile.deleteOnExit();
-		tts.synthesizeToFile(bestemmia, params, outputFile.getAbsolutePath());
-		startActivity(
-			new Intent(Intent.ACTION_SEND)
-				.setType("audio/*")
-				.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + outputFile.getAbsolutePath())));
+		sharer.synthesizeToFile(bestemmia, params, outputFile, outputFile.getAbsolutePath());
+	}
+
+	private static File wavToAac(String input) {
+		final String COMPRESSED_AUDIO_FILE_MIME_TYPE = MediaFormat.MIMETYPE_AUDIO_AAC;
+		final int COMPRESSED_AUDIO_FILE_BIT_RATE = 32000;
+		final int BUFFER_SIZE = 64 * 1024;
+		final int CODEC_TIMEOUT_IN_MS = 5000;
+		File outputFile = null;
+
+		try {
+			MediaExtractor mediaExtractor = new MediaExtractor();
+			mediaExtractor.setDataSource(input);
+			MediaFormat mediaFormat = mediaExtractor.getTrackFormat(0);
+			int srcSamplingRate = mediaFormat.getInteger(MediaFormat.KEY_SAMPLE_RATE);
+
+			mediaExtractor.release();
+
+			FileInputStream fis = new FileInputStream(input);
+			fis.skip(44); // skip WAV header
+
+			outputFile = File.createTempFile("bestemmia", ".m4a", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));
+
+			MediaMuxer mux = new MediaMuxer(outputFile.getAbsolutePath(), MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4);
+
+			MediaFormat outputFormat = MediaFormat.createAudioFormat(COMPRESSED_AUDIO_FILE_MIME_TYPE, srcSamplingRate, 1);
+			outputFormat.setInteger(MediaFormat.KEY_AAC_PROFILE, MediaCodecInfo.CodecProfileLevel.AACObjectLC);
+			outputFormat.setInteger(MediaFormat.KEY_BIT_RATE, COMPRESSED_AUDIO_FILE_BIT_RATE);
+			// outputFormat.setInteger(MediaFormat.KEY_MAX_INPUT_SIZE, 16384);
+
+			MediaCodecList mediaCodecList = new MediaCodecList(MediaCodecList.REGULAR_CODECS);
+			String codecName = mediaCodecList.findEncoderForFormat(outputFormat);
+
+			MediaCodec codec = MediaCodec.createByCodecName(codecName);
+			codec.configure(outputFormat, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE);
+			codec.start();
+
+			MediaCodec.BufferInfo outBuffInfo = new MediaCodec.BufferInfo();
+			byte[] tempBuffer = new byte[BUFFER_SIZE];
+			boolean hasMoreData = true;
+			double presentationTimeUs = 0;
+			int audioTrackIdx = 0;
+			int totalBytesRead = 0;
+			do {
+				int inputBufIndex = 0;
+				while (inputBufIndex != -1 && hasMoreData) {
+					inputBufIndex = codec.dequeueInputBuffer(CODEC_TIMEOUT_IN_MS);
+
+					if (inputBufIndex >= 0) {
+						// ByteBuffer dstBuf = codecInputBuffers[inputBufIndex];
+						ByteBuffer dstBuf = codec.getInputBuffer(inputBufIndex);
+
+						int bytesRead = fis.read(tempBuffer, 0, dstBuf.limit());
+						System.out.println("bytesRead Readed "+bytesRead);
+						if (bytesRead == -1) { // -1 implies EOS
+							hasMoreData = false;
+							codec.queueInputBuffer(inputBufIndex, 0, 0, (long) presentationTimeUs, MediaCodec.BUFFER_FLAG_END_OF_STREAM);
+						} else {
+							totalBytesRead += bytesRead;
+							dstBuf.put(tempBuffer, 0, bytesRead);
+							codec.queueInputBuffer(inputBufIndex, 0, bytesRead, (long) presentationTimeUs, 0);
+							presentationTimeUs = 1000000l * (totalBytesRead / 2) / srcSamplingRate;
+						}
+					}
+				}
+				// Drain audio
+				int outputBufIndex = 0;
+				while (outputBufIndex != MediaCodec.INFO_TRY_AGAIN_LATER) {
+					outputBufIndex = codec.dequeueOutputBuffer(outBuffInfo, CODEC_TIMEOUT_IN_MS);
+					if (outputBufIndex >= 0) {
+						ByteBuffer encodedData = codec.getOutputBuffer(outputBufIndex);
+						encodedData.position(outBuffInfo.offset);
+						encodedData.limit(outBuffInfo.offset + outBuffInfo.size);
+						if ((outBuffInfo.flags & MediaCodec.BUFFER_FLAG_CODEC_CONFIG) != 0 && outBuffInfo.size != 0) {
+							codec.releaseOutputBuffer(outputBufIndex, false);
+						} else {
+							mux.writeSampleData(audioTrackIdx, encodedData, outBuffInfo);
+							codec.releaseOutputBuffer(outputBufIndex, false);
+						}
+					} else if (outputBufIndex == MediaCodec.INFO_OUTPUT_FORMAT_CHANGED) {
+						outputFormat = codec.getOutputFormat();
+						System.out.println("Output format changed - " + outputFormat);
+						audioTrackIdx = mux.addTrack(outputFormat);
+						mux.start();
+					} else {
+						System.out.println("Unknown return code from dequeueOutputBuffer - " + outputBufIndex);
+					}
+				}
+			} while (outBuffInfo.flags != MediaCodec.BUFFER_FLAG_END_OF_STREAM);
+			fis.close();
+			mux.stop();
+			mux.release();
+			System.out.println("Compression done ...");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		//mStop = false;
+		// Notify UI thread...
+
+		return outputFile;
 	}
 
 	public void share(View view) {
@@ -210,21 +369,11 @@ public class Main extends Activity implements TextToSpeech.OnInitListener, TextT
 
 	@Override
 	public void onInit(final int status) {
-		tts.setLanguage(Locale.ITALIAN);
-		tts.setOnUtteranceCompletedListener(this);
+		speaker.setLanguage(Locale.ITALIAN);
+		speaker.setOnUtteranceProgressListener(speakerListener);
+		sharer.setLanguage(Locale.ITALIAN);
+		sharer.setOnUtteranceProgressListener(sharerListener);
 		if(bestemmia != null)
 			play(null);
-	}
-
-	@Override
-	public void onUtteranceCompleted(String s) {
-		if(!loop)
-			return;
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		new Looper().execute((Void) null);
 	}
 }
