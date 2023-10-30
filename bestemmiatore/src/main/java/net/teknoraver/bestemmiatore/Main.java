@@ -120,6 +120,9 @@ public class Main extends Activity {
 		prefs = getSharedPreferences("bestemmie", MODE_PRIVATE);
 
 		tts = new TextToSpeech(this, (final int status) -> {
+			if (status != TextToSpeech.SUCCESS)
+				return;
+
 			tts.setLanguage(Locale.ITALIAN);
 			tts.setOnUtteranceProgressListener(ttsListener);
 			if (bestemmia != null)
